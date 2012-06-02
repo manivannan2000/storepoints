@@ -4,6 +4,9 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name = "StoreAccount")
 public class Account {
 	
+	/**
+	 * version V1 for storepoints.
+	 */
 	private String accountid;
 	private String accountName;
 	private int storePoint;
