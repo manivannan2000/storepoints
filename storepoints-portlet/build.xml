@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="cxf wsdl2java" basedir="."> 
+	<property name="cxf.home" location ="/Users/manivannan2000/Soft/ApacheCXF/apache-cxf-2.6.0"/>
+
+   <path id="cxf.classpath">
+      <pathelement location="${build.classes.dir}"/>
+      <fileset dir="${cxf.home}/lib">
+         <include name="*.jar"/>
+      </fileset>
+   </path>
+	
+	<target name="cxfWSDLToJava">
+	      <java classname="org.apache.cxf.tools.wsdlto.WSDLToJava" fork="true">
+	         <arg value="-client"/>
+	         <arg value="-d"/>
+	         <arg value="src"/>
+	         <arg value="schema/StorePointsService.wsdl"/>
+	         <classpath>
+	            <path refid="cxf.classpath"/>
+	         </classpath>
+	      </java>
+	 </target>
+</project>

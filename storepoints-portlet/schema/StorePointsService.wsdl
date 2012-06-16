@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions name="StorePointsService" targetNamespace="http://service.storepoints.com/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://service.storepoints.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+<xs:schema elementFormDefault="unqualified" targetNamespace="http://service.storepoints.com/" version="1.0" xmlns:tns="http://service.storepoints.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:element name="StoreAccount" type="tns:account"/>
+<xs:element name="getAccounts" type="tns:getAccounts"/>
+<xs:element name="getAccountsResponse" type="tns:getAccountsResponse"/>
+<xs:complexType name="getAccounts">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="getAccountsResponse">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:account"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="account">
+<xs:sequence>
+<xs:element minOccurs="0" name="accountName" type="xs:string"/>
+<xs:element minOccurs="0" name="accountid" type="xs:string"/>
+<xs:element name="storePoint" type="xs:int"/>
+<xs:element minOccurs="0" name="storeType" type="tns:storeType"/>
+</xs:sequence>
+</xs:complexType>
+<xs:simpleType name="storeType">
+<xs:restriction base="xs:string">
+<xs:enumeration value="REST"/>
+<xs:enumeration value="TEXT"/>
+<xs:enumeration value="OTHER"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="getAccounts">
+    <wsdl:part element="tns:getAccounts" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAccountsResponse">
+    <wsdl:part element="tns:getAccountsResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="StorePointsService">
+    <wsdl:operation name="getAccounts">
+      <wsdl:input message="tns:getAccounts" name="getAccounts">
+    </wsdl:input>
+      <wsdl:output message="tns:getAccountsResponse" name="getAccountsResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="StorePointsServiceSoapBinding" type="tns:StorePointsService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getAccounts">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getAccounts">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getAccountsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="StorePointsService">
+    <wsdl:port binding="tns:StorePointsServiceSoapBinding" name="StorePointsServiceImplPort">
+      <soap:address location="http://localhost:8080/orderapp/StorePointsService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
