@@ -1,0 +1,95 @@
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/amplify/!svn/ver/17/CISCOADX/SourceCode/ADX3/tags/1.0.0.14/adx-portlet/src/main/webapp/WEB-INF/context/portlet
+END
+event.xml
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/amplify/!svn/ver/17/CISCOADX/SourceCode/ADX3/tags/1.0.0.14/adx-portlet/src/main/webapp/WEB-INF/context/portlet/event.xml
+END
+nooffer.xml
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/amplify/!svn/ver/17/CISCOADX/SourceCode/ADX3/tags/1.0.0.14/adx-portlet/src/main/webapp/WEB-INF/context/portlet/nooffer.xml
+END
+offer.xml
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/amplify/!svn/ver/17/CISCOADX/SourceCode/ADX3/tags/1.0.0.14/adx-portlet/src/main/webapp/WEB-INF/context/portlet/offer.xml
+END
+no_inventory_status_report.xml
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svn/amplify/!svn/ver/17/CISCOADX/SourceCode/ADX3/tags/1.0.0.14/adx-portlet/src/main/webapp/WEB-INF/context/portlet/no_inventory_status_report.xml
+END
+spring-config.xml
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svn/amplify/!svn/ver/17/CISCOADX/SourceCode/ADX3/tags/1.0.0.14/adx-portlet/src/main/webapp/WEB-INF/context/portlet/spring-config.xml
+END
+media.xml
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/amplify/!svn/ver/17/CISCOADX/SourceCode/ADX3/tags/1.0.0.14/adx-portlet/src/main/webapp/WEB-INF/context/portlet/media.xml
+END
+no_content_approval.xml
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/amplify/!svn/ver/17/CISCOADX/SourceCode/ADX3/tags/1.0.0.14/adx-portlet/src/main/webapp/WEB-INF/context/portlet/no_content_approval.xml
+END
+mbofferqueue.xml
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/amplify/!svn/ver/17/CISCOADX/SourceCode/ADX3/tags/1.0.0.14/adx-portlet/src/main/webapp/WEB-INF/context/portlet/mbofferqueue.xml
+END
+user.xml
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/amplify/!svn/ver/17/CISCOADX/SourceCode/ADX3/tags/1.0.0.14/adx-portlet/src/main/webapp/WEB-INF/context/portlet/user.xml
+END
+account.xml
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/amplify/!svn/ver/17/CISCOADX/SourceCode/ADX3/tags/1.0.0.14/adx-portlet/src/main/webapp/WEB-INF/context/portlet/account.xml
+END
+network.xml
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/amplify/!svn/ver/17/CISCOADX/SourceCode/ADX3/tags/1.0.0.14/adx-portlet/src/main/webapp/WEB-INF/context/portlet/network.xml
+END
+avail.xml
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/amplify/!svn/ver/17/CISCOADX/SourceCode/ADX3/tags/1.0.0.14/adx-portlet/src/main/webapp/WEB-INF/context/portlet/avail.xml
+END
+campaign.xml
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/amplify/!svn/ver/17/CISCOADX/SourceCode/ADX3/tags/1.0.0.14/adx-portlet/src/main/webapp/WEB-INF/context/portlet/campaign.xml
+END
+noreport.xml
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/amplify/!svn/ver/17/CISCOADX/SourceCode/ADX3/tags/1.0.0.14/adx-portlet/src/main/webapp/WEB-INF/context/portlet/noreport.xml
+END
+noofferqueue.xml
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/amplify/!svn/ver/17/CISCOADX/SourceCode/ADX3/tags/1.0.0.14/adx-portlet/src/main/webapp/WEB-INF/context/portlet/noofferqueue.xml
+END

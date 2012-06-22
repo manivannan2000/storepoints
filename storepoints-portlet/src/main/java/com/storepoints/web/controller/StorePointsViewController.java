@@ -8,8 +8,13 @@ import java.util.ListIterator;
 import java.util.Map;
 import java.util.Set;
 
+import javax.portlet.ActionRequest;
+import javax.portlet.ActionResponse;
 import javax.portlet.RenderRequest;
 import javax.portlet.RenderResponse;
+import javax.portlet.PortletPreferences;
+import javax.portlet.PortletSession;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,7 +28,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.portlet.bind.PortletRequestDataBinder;
 
 import com.storepoints.service.StorePointsService;
-import com.storepoints.service.StorePointsServiceImpl;
+import com.storepoints.service.client.GetAccountsServiceClient;
+import com.storepoints.web.dto.GetUserContact;
+
+import javax.servlet.http.Cookie;
 
 
 @Controller
@@ -39,15 +47,95 @@ public class StorePointsViewController {
 
 	@InitBinder
 	protected void initBinder(PortletRequestDataBinder binder) {
+		
 	}
-
+	
 	@RequestMapping()
-	public String listStorePoints(Model model, RenderRequest renderRequest,
+	public String getUserContact(Model model, RenderRequest renderRequest,
 			RenderResponse renderResponse) {
 
-			StorePointsService storePointsService = new StorePointsServiceImpl();
+		PortletPreferences prefs = renderRequest.getPreferences();
 		
-			model.addAttribute("storepointsaccounts",storePointsService.getAccounts() );
+		String storeType = (String)prefs.getValue("STORETYPE","");
+		
+//		Cookie[] cookies = renderRequest.getCookies();
+//		
+//		
+//		for(Cookie cookie:cookies){
+//			if(cookie.getName().equals("CONTACT_NAME")){
+				
+//				String contactCookieValue = cookie.getValue();
+//				System.out.println("contactCookieValue:"+contactCookieValue);
+		
+				PortletSession pSession = renderRequest.getPortletSession();
+	
+		      if(pSession.getAttribute("CONTACT_NAME",PortletSession.APPLICATION_SCOPE)!=null){
+		    	  
+		    	  String contactSessionValue = (String)pSession.getAttribute("CONTACT_NAME",PortletSession.APPLICATION_SCOPE);
+		    	  
+					System.out.println("contact value from session:"+contactSessionValue);
+
+
+					GetAccountsServiceClient  client = new GetAccountsServiceClient(storeType);
+					client.makeServiceCall();
+					
+					model.addAttribute("storepointsaccounts",client.getAccounts() );
+
+					return "storepoints/list";
+
+		      }
+		
+				
+//			}
+			
+		
+		return "storepoints/getusercontact";
+	}
+	
+	
+	/** For the Action phase */
+	@RequestMapping(params = "action=storepointslist")
+	public void createNOAccount(
+			ActionRequest request,
+			ActionResponse response,
+			@ModelAttribute("getusercontact") GetUserContact userContact,
+			BindingResult result, Model model) {
+		
+		response.setRenderParameter("contactname", userContact.getContactname());
+		response.setRenderParameter("action", "storepointslist");
+	}
+
+	@RequestMapping(params = "action=storepointslist")
+	public String listStorePoints(Model model, @RequestParam("contactname") String contactname,
+			RenderRequest renderRequest,
+			RenderResponse renderResponse) {
+
+//			StorePointsService storePointsService = new StorePointsServiceImpl();
+		
+		PortletSession pSession = renderRequest.getPortletSession();
+		
+		PortletPreferences prefs = renderRequest.getPreferences();
+		
+		String storeType = (String)prefs.getValue("STORETYPE","");
+		
+		if(storeType!=null && !storeType.trim().equals("")){
+			
+			
+			System.out.println("contactname value:"+contactname);
+			
+			Cookie cookie = new Cookie("CONTACT_NAME",contactname);
+			
+			renderResponse.addProperty(cookie);
+			
+			pSession.setAttribute("CONTACT_NAME",contactname , PortletSession.APPLICATION_SCOPE);
+			
+			
+			GetAccountsServiceClient  client = new GetAccountsServiceClient(storeType);
+			client.makeServiceCall();
+			
+			model.addAttribute("storepointsaccounts",client.getAccounts() );
+
+		}
 
 		return "storepoints/list";
 

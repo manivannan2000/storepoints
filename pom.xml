@@ -433,7 +433,7 @@
 	</properties>
 	  <modules>
 	     <module>storepoints-portlet</module>
-  </modules>
+          </modules>
 	
     
     
