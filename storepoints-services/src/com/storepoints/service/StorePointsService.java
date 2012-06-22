@@ -12,6 +12,6 @@ import com.storepoints.dto.Account;
 public interface StorePointsService {
 
 	@WebMethod
-	public List<Account> getAccounts();
+	public List<Account> getAccounts(String storeType);
 	
 }

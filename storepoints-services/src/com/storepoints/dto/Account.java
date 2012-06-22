@@ -10,6 +10,7 @@ public class Account {
 	private String accountid;
 	private String accountName;
 	private int storePoint;
+	private StoreType storeType;
 
 	public int getStorePoint() {
 		return storePoint;
@@ -36,6 +37,11 @@ public class Account {
 		this.accountid = accountid;
 	}
 	
-	
+	public StoreType getStoreType() {
+		return storeType;
+	}
 
+	public void setStoreType(StoreType storeType) {
+		this.storeType = storeType;
+	}
 }

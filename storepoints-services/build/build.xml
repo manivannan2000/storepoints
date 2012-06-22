@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="CXF Chapter2 example" default="build" basedir=".">
+	<property name="cxf.home" location ="/Users/manivannan2000/Soft/ApacheCXF/apache-cxf-2.6.0"/>
+	
+	<import file="common_build.xml" />
+	
+	<target name="client" description="run demo client" depends="build">
+		<property name="param" value="" />
+		<cxfrun classname="demo.order.client.Client2" />
+	</target>
+
+	<target name="client-storepoints" description="run storepoints client" depends="build">
+		<property name="param" value="" />
+		<cxfrun classname="com.storepoints.service.client.StorePointsClient2" />
+	</target>
+	
+	<target name="server" description="run demo server" depends="build">
+		<cxfrun classname="demo.spring.servlet.Server" />
+	</target>
+	<property name="cxf.war.file.name" value="orderapp" />
+	<target name="war" depends="build">
+		<cxfwar filename="${cxf.war.file.name}.war" webxml="webapp/WEB-INF/web.xml" />
+	</target>
+</project>
+<!--<project name="cxf java2ws" basedir=".">   
+	<import file="common_build.xml"/>
+   <property name="cxf.home" location ="/Users/manivannan2000/Soft/ApacheCXF/apache-cxf-2.6.0"/>
+
+   <path id="cxf.classpath">
+      <pathelement location="${build.classes.dir}"/>
+      <fileset dir="${cxf.home}/lib">
+         <include name="*.jar"/>
+      </fileset>
+   </path>
+	
+	
+	<target name="compile">
+		<javac srcdir="${basedir}/src"
+		         destdir="${build.classes.dir}"
+		         fork="true"
+		  />
+	</target>
+      
+   <target name="cxfJavaToWS" depends="compile" >
+    <java classname="org.apache.cxf.tools.java2ws.JavaToWS" fork="true">
+          <arg value="-wsdl"/>
+          <arg value="-o"/>
+          <arg value="hello.wsdl"/>
+          <arg value="demo.order.OrderProcess"/>
+          <classpath>
+             <path refid="cxf.classpath"/>
+          </classpath>
+       </java>
+   </target>
+	
+	<target name="client" description=
+	"run demo client" depends="build"> 
+		<property name="param" value=""/>
+		<cxfrun classname="demo.order.client.Client" /> 
+	</target>
+	<target name="server" description= "run demo server" depends="build">
+		<cxfrun classname="demo.spring.servlet.Server"/> 
+	</target>
+	<property name="cxf.war.file.name" value="orderapp"/> 
+	
+	<target name="war" depends="build">
+	 <cxfwar filename="${cxf.war.file.name}.war" webxml= "webapp/WEB-INF/web.xml" />
+	</target>	
+	
+</project> -->

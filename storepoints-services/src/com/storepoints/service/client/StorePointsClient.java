@@ -15,8 +15,10 @@ public class StorePointsClient {
 		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(
 				new String[] { "com/storepoints/service/client/storepoints-client-beans.xml" });
 		StorePointsService storePointsClient = (StorePointsService) context.getBean("storePointsClient");
-
-		List<Account> accounts = storePointsClient.getAccounts();
+		
+		String storeType ="REST";
+		storeType="TEXT";
+		List<Account> accounts = storePointsClient.getAccounts(storeType);
 		
 		
 		System.out.println("Printing accounts for storepoints...");
