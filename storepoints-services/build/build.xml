@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="CXF Chapter2 example" default="build" basedir=".">
+<project name="storepoints-services" default="build" basedir=".">
 	<property name="cxf.home" location ="/Users/manivannan2000/Soft/ApacheCXF/apache-cxf-2.6.0"/>
 	
 	<import file="common_build.xml" />

@@ -15,7 +15,6 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import com.storepoints.dto.Account;
 import com.storepoints.service.StorePointsService;
 
-import demo.order.OrderProcess;
 
 
 public class StorePointsClient2 {
