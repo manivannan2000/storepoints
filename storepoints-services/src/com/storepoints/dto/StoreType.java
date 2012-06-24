@@ -2,8 +2,14 @@ package com.storepoints.dto;
 
 public enum StoreType {
 	
-	REST, //represents Restaurants
-	TEXT,// represents Textiles
+	RESTAURANTS, //represents Restaurants
+	TEXTILES,// represents Textiles
+	JEWEL, //represents Jewelleries
+	FURNITURE, //represents furnitures
+	GROCERY, // represents grocery stores
+	PHARMA, //represents Pharmacy stores
+	ELECTRONICS, //represents electronics shops
+	STATIONARY, //represents stationary shops
 	OTHER;// represents others 
 	
 	

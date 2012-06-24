@@ -1,61 +1,99 @@
 package com.storepoints.service;
 
-
-
 import java.util.ArrayList;
 import java.util.List;
 
 import com.storepoints.dto.Account;
+import com.storepoints.dto.ContactPhone;
+import com.storepoints.dto.ContactPhoneList;
+import com.storepoints.dto.Store;
 import com.storepoints.dto.StoreType;
+import com.storepoints.dto.User;
+import com.storepoints.memcached.data.SPUsersAccountsMapperTable;
+import com.storepoints.memcached.data.StorePointsAccountsTable;
+import com.storepoints.memcached.data.StorePointsStoresTable;
+import com.storepoints.memcached.data.StorePointsUsersTable;
 
 @javax.jws.WebService(portName = "StorePointsServiceImplPort", serviceName = "StorePointsService")
 public class StorePointsServiceImpl implements StorePointsService {
 	
-	private static List<Account> accounts = new ArrayList<Account>();
-	
-	static{
-		Account acct1 = new Account();
-		acct1.setAccountid("1234");
-		acct1.setAccountName("Saravana Stores");
-		acct1.setStorePoint(1000);
-		acct1.setStoreType(StoreType.TEXT);
-		
-		Account acct2 = new Account();
-		acct2.setAccountid("5678");
-		acct2.setAccountName("Pothys Stores");
-		acct2.setStorePoint(500);
-		acct2.setStoreType(StoreType.TEXT);
-
-		
-		Account acct3 = new Account();
-		acct3.setAccountid("5678");
-		acct3.setAccountName("Saravana Bavan");
-		acct3.setStorePoint(100);
-		acct3.setStoreType(StoreType.REST);
-		
-		accounts.add(acct1);
-		accounts.add(acct2);
-		accounts.add(acct3);
-
-	}
-	
-
 	@Override
-	public List<Account> getAccounts(String storeType){
-	
-		List<Account> accountsSType = new ArrayList<Account>();
+	public List<AccountData> getAccounts(String userContactId, String storeType) {
 		
-		System.out.println("Service providing the list of accounts");
 		
-		for(Account account: accounts){
-			if(account.getStoreType().toString().equals(storeType)){
-				accountsSType.add(account);
+		String accountId = null;
+		
+		List<User> users =StorePointsUsersTable.getUsers();
+		
+		for(User user: users){
+			ContactPhoneList contactPhoneList =user.getContactPhoneList();
+			
+			for( ContactPhone contactPhone: contactPhoneList.getContactPhoneList()){
+				if(contactPhone.getContactPhoneNumber().equals(userContactId)){
+					accountId =SPUsersAccountsMapperTable.getUsersAccountsMap().get(user.getUserId());
+					break;
+				}
 			}
 		}
+		
+		
+		if(accountId==null){
+			return null;
+		}
+		
+//		GetAccountsRs getAccountsRs = new GetAccountsRs();
+	
+//		AccountDataList accountDataList = new AccountDataList();
+		
+//		getAccountsRs.setAccountDataList(accountDataList);
+//		System.out.println("AccountDataList size(Before loop):"+accountDataList.getAccountData().size());
+		
+		List<AccountData> accountDataList = new ArrayList<AccountData>();
+		
+		System.out.println("Service providing the list of accounts for accountId:"+accountId);
+		
+		for(Account account: StorePointsAccountsTable.getAccounts()){
 
+			System.out.println("StorePointsAccountsTable size:"+StorePointsAccountsTable.getAccounts().size());
+			
+			
+			
+			if(account.getAccountid().equals(accountId)){
+				for(Store store: StorePointsStoresTable.getStores()) {
+					System.out.println("StorePointsStoresTable size:"+StorePointsStoresTable.getStores().size());
+				
+					if(store.getStoreid().equals(account.getStoreid()) && store.getStoreType().toString().equals(storeType)){
+						AccountData accountData = new AccountData();
+						accountData.setAccountid(account.getAccountid());
+						accountData.setStoreid(account.getStoreid());
+						accountData.setStorePoint(account.getStorePoint());
+						accountData.setStoreName(store.getStoreName());
+//						accountDataList.getAccountData().add(accountData);
+						accountDataList.add(accountData);
+//						System.out.println("AccountDataList size:"+accountDataList.getAccountData().size());
+					}
+				}
+			}
+		}
 		
-		return accountsSType;
+//		getAccountsRs.setAccountDataList(accountDataList);
+//		System.out.println("AccountDataList size(After loop):"+accountDataList.getAccountData().size());
+		System.out.println("AccountDataList size(After loop):"+accountDataList.size());		
 		
+		return accountDataList;
+		
+	}
+
+	@Override
+	public void addStore(Store store) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public List<User> getUserList(String storeId, String accessKey) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 }

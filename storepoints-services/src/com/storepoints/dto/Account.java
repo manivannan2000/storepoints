@@ -8,10 +8,19 @@ public class Account {
 	 * version V1 for storepoints.
 	 */
 	private String accountid;
-	private String accountName;
-	private int storePoint;
-	private StoreType storeType;
 
+	private String storeid;
+
+	private int storePoint;
+
+	public String getStoreid() {
+		return storeid;
+	}
+
+	public void setStoreid(String storeid) {
+		this.storeid = storeid;
+	}
+	
 	public int getStorePoint() {
 		return storePoint;
 	}
@@ -19,15 +28,6 @@ public class Account {
 	public void setStorePoint(int storePoint) {
 		this.storePoint = storePoint;
 	}
-
-	public String getAccountName() {
-		return accountName;
-	}
-
-	public void setAccountName(String accountName) {
-		this.accountName = accountName;
-	}
-
 
 	public String getAccountid() {
 		return accountid;
@@ -37,11 +37,4 @@ public class Account {
 		this.accountid = accountid;
 	}
 	
-	public StoreType getStoreType() {
-		return storeType;
-	}
-
-	public void setStoreType(StoreType storeType) {
-		this.storeType = storeType;
-	}
 }

@@ -6,12 +6,21 @@ import javax.jws.WebService;
 import javax.jws.WebMethod;
 
 import com.storepoints.dto.Account;
+import com.storepoints.dto.Store;
+import com.storepoints.dto.User;
 
 
 @WebService
 public interface StorePointsService {
 
 	@WebMethod
-	public List<Account> getAccounts(String storeType);
+	public List<AccountData> getAccounts(String userContactId, String storeType);
+	
+	@WebMethod
+	public void addStore(Store store);
+	
+	@WebMethod
+	public List<User>  getUserList(String storeId,String accessKey);
+	
 	
 }

@@ -3,5 +3,5 @@
 	xsi:schemaLocation="
 http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd">
 	<jaxws:client id="storePointsClient" serviceClass="com.storepoints.service.StorePointsService"
-		address="http://localhost:8080/orderapp/StorePointsService" />
+		address="http://localhost:8080/storepoints-services/StorePointsService" />
 </beans>
