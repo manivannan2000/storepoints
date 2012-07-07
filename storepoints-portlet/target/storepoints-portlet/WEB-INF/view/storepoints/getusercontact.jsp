@@ -15,7 +15,7 @@
 
 <form:form name="form1" modelAttribute="getusercontact" method="post" action="${actionUrl}">
 
-	<label>Enter your contact phone/email address shared with store:</label> 
+	<label>Enter your contact phone/email address shared with participating store:</label> 
 	
 	<input size="50" type="text" value="" name="contactname"/>
 	

@@ -76,10 +76,10 @@ public class StorePointsViewController {
 					System.out.println("contact value from session:"+contactSessionValue);
 
 
-					GetAccountsServiceClient  client = new GetAccountsServiceClient(storeType);
+					GetAccountsServiceClient  client = new GetAccountsServiceClient(contactSessionValue,storeType);
 					client.makeServiceCall();
 					
-					model.addAttribute("storepointsaccounts",client.getAccounts() );
+					model.addAttribute("storepointsaccounts",client.getAccountsData() );
 
 					return "storepoints/list";
 
@@ -130,10 +130,10 @@ public class StorePointsViewController {
 			pSession.setAttribute("CONTACT_NAME",contactname , PortletSession.APPLICATION_SCOPE);
 			
 			
-			GetAccountsServiceClient  client = new GetAccountsServiceClient(storeType);
+			GetAccountsServiceClient  client = new GetAccountsServiceClient(contactname,storeType);
 			client.makeServiceCall();
 			
-			model.addAttribute("storepointsaccounts",client.getAccounts() );
+			model.addAttribute("storepointsaccounts",client.getAccountsData() );
 
 		}
 

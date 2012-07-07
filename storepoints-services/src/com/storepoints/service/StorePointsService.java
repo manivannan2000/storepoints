@@ -17,10 +17,12 @@ public interface StorePointsService {
 	public List<AccountData> getAccounts(String userContactId, String storeType);
 	
 	@WebMethod
-	public void addStore(Store store);
+	public Status addStore(Store store);
 	
 	@WebMethod
 	public List<User>  getUserList(String storeId,String accessKey);
-	
+
+	@WebMethod
+	public List<Store>  getStores();
 	
 }

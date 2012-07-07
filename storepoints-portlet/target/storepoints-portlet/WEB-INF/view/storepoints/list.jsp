@@ -13,7 +13,7 @@
 	<%=renderRequest.getPortletSession().getAttribute("banner")%>
 </span>  --%>
 <span class="version">
-	v1.0.0.14
+	v1.0.0.0
 </span>
 
     	<h3><label>Storepoints Details</label></h3>
@@ -23,7 +23,7 @@
                             <table class="tStatus" cellpadding="0" cellspacing="0">                        
                                 <tr>
                                     <td>${storePointsAccount.accountid}</td>
-                                    <td>${storePointsAccount.accountName }</td>
+                                    <td>${storePointsAccount.storeName }</td>
                                     <td>${storePointsAccount.storePoint }</td>
                                 </tr>
                             </table>

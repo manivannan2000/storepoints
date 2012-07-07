@@ -24,6 +24,26 @@
 		<supported-locale>de</supported-locale>
 		<resource-bundle>storepoints-portlet</resource-bundle>
 	</portlet>
+	<portlet>
+		<portlet-name>StorePointsAdmin</portlet-name>
+		<display-name xml:lang="en">StorePointsAdmin</display-name>
+		<display-name xml:lang="de">StorePointsAdmin</display-name>
+		<portlet-class>org.springframework.web.portlet.DispatcherPortlet</portlet-class>
+		<init-param>
+			<name>contextConfigLocation</name>
+			<value>/WEB-INF/context/portlet/storepointsadmin.xml</value>
+		</init-param>
+		<expiration-cache>0</expiration-cache>
+		<supports>
+			<mime-type>text/html</mime-type>
+			<portlet-mode>view</portlet-mode>
+			<portlet-mode>edit</portlet-mode>
+			<portlet-mode>help</portlet-mode>
+		</supports>
+		<supported-locale>en</supported-locale>
+		<supported-locale>de</supported-locale>
+		<resource-bundle>storepointsadmin-portlet</resource-bundle>
+	</portlet>
 
 	
 </portlet-app>

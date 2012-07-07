@@ -2,6 +2,9 @@
 <project name="storepoints-services" default="build" basedir=".">
 	<property name="cxf.home" location ="/Users/manivannan2000/Soft/ApacheCXF/apache-cxf-2.6.0"/>
 	
+	<property name="json.home" location ="//Users/manivannan2000/Soft/JSON"/>
+
+		
 	<import file="common_build.xml" />
 	
 	<target name="client" description="run storepoints client" depends="build">

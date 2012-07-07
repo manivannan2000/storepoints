@@ -79,7 +79,7 @@ public abstract class AbstractSPServiceClient {
 			HttpClient client = new HttpClient();
 
 			PostMethod post = new PostMethod(
-					"http://localhost:8080/orderapp/StorePointsService");
+					"http://localhost:8080/storepoints-services/StorePointsService");
 
 			post.setRequestEntity(new ByteArrayRequestEntity(body.getBytes()));
 			// set any request headers
@@ -139,7 +139,7 @@ public abstract class AbstractSPServiceClient {
 			} 
 			
 		} catch (Exception e) {
-		e.printStackTrace();
+			e.printStackTrace();
 		}
 
 	}

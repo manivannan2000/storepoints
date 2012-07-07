@@ -2,5 +2,6 @@
 <display>
 	<category name="StorePoints Liferay Portlets">
 		<portlet id="StorePointsViewer" />
+		<portlet id="StorePointsAdmin" />
 	</category>
 </display>

@@ -1,54 +1,173 @@
 <?xml version='1.0' encoding='UTF-8'?><wsdl:definitions name="StorePointsService" targetNamespace="http://service.storepoints.com/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://service.storepoints.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <wsdl:types>
 <xs:schema elementFormDefault="unqualified" targetNamespace="http://service.storepoints.com/" version="1.0" xmlns:tns="http://service.storepoints.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-<xs:element name="StoreAccount" type="tns:account"/>
+<xs:element name="addStore" type="tns:addStore"/>
+<xs:element name="addStoreResponse" type="tns:addStoreResponse"/>
 <xs:element name="getAccounts" type="tns:getAccounts"/>
 <xs:element name="getAccountsResponse" type="tns:getAccountsResponse"/>
+<xs:element name="getStores" type="tns:getStores"/>
+<xs:element name="getStoresResponse" type="tns:getStoresResponse"/>
+<xs:element name="getUserList" type="tns:getUserList"/>
+<xs:element name="getUserListResponse" type="tns:getUserListResponse"/>
+<xs:complexType name="getUserList">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="xs:string"/>
+<xs:element minOccurs="0" name="arg1" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="getUserListResponse">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:user"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="user">
+<xs:sequence>
+<xs:element minOccurs="0" name="contactEmailList" type="tns:contactEmailList"/>
+<xs:element minOccurs="0" name="contactPhoneList" type="tns:contactPhoneList"/>
+<xs:element minOccurs="0" name="firstName" type="xs:string"/>
+<xs:element minOccurs="0" name="lastName" type="xs:string"/>
+<xs:element minOccurs="0" name="userId" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="contactEmailList">
+<xs:sequence/>
+</xs:complexType>
+<xs:complexType name="contactPhoneList">
+<xs:sequence/>
+</xs:complexType>
 <xs:complexType name="getAccounts">
 <xs:sequence>
 <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+<xs:element minOccurs="0" name="arg1" type="xs:string"/>
 </xs:sequence>
 </xs:complexType>
 <xs:complexType name="getAccountsResponse">
 <xs:sequence>
-<xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:account"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:accountData"/>
 </xs:sequence>
 </xs:complexType>
-<xs:complexType name="account">
+<xs:complexType name="accountData">
 <xs:sequence>
-<xs:element minOccurs="0" name="accountName" type="xs:string"/>
 <xs:element minOccurs="0" name="accountid" type="xs:string"/>
+<xs:element minOccurs="0" name="storeName" type="xs:string"/>
 <xs:element name="storePoint" type="xs:int"/>
+<xs:element minOccurs="0" name="storeid" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="getStores">
+<xs:sequence/>
+</xs:complexType>
+<xs:complexType name="getStoresResponse">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:store"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="store">
+<xs:sequence>
+<xs:element minOccurs="0" name="storeId" type="xs:string"/>
+<xs:element minOccurs="0" name="storeName" type="xs:string"/>
 <xs:element minOccurs="0" name="storeType" type="tns:storeType"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="addStore">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="tns:store"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="addStoreResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="tns:status"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="status">
+<xs:sequence>
+<xs:element minOccurs="0" name="status" type="xs:boolean"/>
 </xs:sequence>
 </xs:complexType>
 <xs:simpleType name="storeType">
 <xs:restriction base="xs:string">
-<xs:enumeration value="REST"/>
-<xs:enumeration value="TEXT"/>
+<xs:enumeration value="RESTAURANTS"/>
+<xs:enumeration value="TEXTILES"/>
+<xs:enumeration value="JEWEL"/>
+<xs:enumeration value="FURNITURES"/>
+<xs:enumeration value="GROCERY"/>
+<xs:enumeration value="PHARMA"/>
+<xs:enumeration value="ELECTRONICS"/>
+<xs:enumeration value="STATIONARY"/>
 <xs:enumeration value="OTHER"/>
 </xs:restriction>
 </xs:simpleType>
 </xs:schema>
   </wsdl:types>
+  <wsdl:message name="addStore">
+    <wsdl:part element="tns:addStore" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getStores">
+    <wsdl:part element="tns:getStores" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
   <wsdl:message name="getAccounts">
     <wsdl:part element="tns:getAccounts" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getUserListResponse">
+    <wsdl:part element="tns:getUserListResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getStoresResponse">
+    <wsdl:part element="tns:getStoresResponse" name="parameters">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="getAccountsResponse">
     <wsdl:part element="tns:getAccountsResponse" name="parameters">
     </wsdl:part>
   </wsdl:message>
+  <wsdl:message name="getUserList">
+    <wsdl:part element="tns:getUserList" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addStoreResponse">
+    <wsdl:part element="tns:addStoreResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
   <wsdl:portType name="StorePointsService">
+    <wsdl:operation name="getUserList">
+      <wsdl:input message="tns:getUserList" name="getUserList">
+    </wsdl:input>
+      <wsdl:output message="tns:getUserListResponse" name="getUserListResponse">
+    </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="getAccounts">
       <wsdl:input message="tns:getAccounts" name="getAccounts">
     </wsdl:input>
       <wsdl:output message="tns:getAccountsResponse" name="getAccountsResponse">
     </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="getStores">
+      <wsdl:input message="tns:getStores" name="getStores">
+    </wsdl:input>
+      <wsdl:output message="tns:getStoresResponse" name="getStoresResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addStore">
+      <wsdl:input message="tns:addStore" name="addStore">
+    </wsdl:input>
+      <wsdl:output message="tns:addStoreResponse" name="addStoreResponse">
+    </wsdl:output>
+    </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="StorePointsServiceSoapBinding" type="tns:StorePointsService">
     <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getUserList">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getUserList">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getUserListResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="getAccounts">
       <soap:operation soapAction="" style="document"/>
       <wsdl:input name="getAccounts">
@@ -58,10 +177,28 @@
         <soap:body use="literal"/>
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="addStore">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="addStore">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="addStoreResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getStores">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getStores">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getStoresResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="StorePointsService">
     <wsdl:port binding="tns:StorePointsServiceSoapBinding" name="StorePointsServiceImplPort">
-      <soap:address location="http://localhost:8080/orderapp/StorePointsService"/>
+      <soap:address location="http://localhost:8080/storepoints-services/StorePointsService"/>
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

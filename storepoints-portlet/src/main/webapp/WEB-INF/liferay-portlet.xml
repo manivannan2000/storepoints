@@ -7,6 +7,11 @@
  		<instanceable>true</instanceable>
  	</portlet>
 
+  <portlet>
+ 		<portlet-name>StorePointsAdmin</portlet-name>
+ 		<instanceable>true</instanceable>
+ 	</portlet>
+ 	
 	<role-mapper>
         <role-name>administrator</role-name>
         <role-link>Administrator</role-link>

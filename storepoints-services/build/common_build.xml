@@ -307,6 +307,14 @@
                 <exclude name="WHICH_JARS" />
             </fileset>
         </copy>
+    	
+        <copy todir="${war-lib}">
+            <fileset dir="${json.home}">
+                <include name="ezmorph-1.0.6.jar" />
+                <include name="json-lib-2.4-jdk15.jar" />
+            </fileset>
+        </copy>
+    	
     </target>
     
     <target name="copy-config-files-webinf" if="has.config.webinf">

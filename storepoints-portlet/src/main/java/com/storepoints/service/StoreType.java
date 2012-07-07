@@ -13,8 +13,14 @@ import javax.xml.bind.annotation.XmlType;
  * <pre>
  * &lt;simpleType name="storeType">
  *   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
- *     &lt;enumeration value="REST"/>
- *     &lt;enumeration value="TEXT"/>
+ *     &lt;enumeration value="RESTAURANTS"/>
+ *     &lt;enumeration value="TEXTILES"/>
+ *     &lt;enumeration value="JEWEL"/>
+ *     &lt;enumeration value="FURNITURES"/>
+ *     &lt;enumeration value="GROCERY"/>
+ *     &lt;enumeration value="PHARMA"/>
+ *     &lt;enumeration value="ELECTRONICS"/>
+ *     &lt;enumeration value="STATIONARY"/>
  *     &lt;enumeration value="OTHER"/>
  *   &lt;/restriction>
  * &lt;/simpleType>
@@ -25,8 +31,14 @@ import javax.xml.bind.annotation.XmlType;
 @XmlEnum
 public enum StoreType {
 
-    REST,
-    TEXT,
+    RESTAURANTS,
+    TEXTILES,
+    JEWEL,
+    FURNITURES,
+    GROCERY,
+    PHARMA,
+    ELECTRONICS,
+    STATIONARY,
     OTHER;
 
     public String value() {

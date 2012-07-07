@@ -47,6 +47,26 @@
 			</map>
 		</property>
 	</bean>
+	
+	<bean id="portletModeParameterHandlerMapping" class="org.springframework.web.portlet.handler.PortletModeParameterHandlerMapping">
+    	<property name="portletModeParameterMap">
+        <map>
+            <entry key="view"> 
+                <map>
+                    <entry key="action"><ref bean="storePointsViewController"/></entry>         
+                </map>
+            </entry>
+        
+            <entry key="edit"> 
+                <map>
+                     <entry key="prefs"><ref bean="prefsHandler"/></entry>        
+                </map>
+        </entry>
+        
+        </map>
+    </property>
+	</bean>
+	
 
 	
 

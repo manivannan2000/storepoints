@@ -1,8 +1,10 @@
 package com.storepoints.service;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
+import com.storepoints.couchdb.rs.client.AddStoreSPRESTServiceClient;
 import com.storepoints.dto.Account;
 import com.storepoints.dto.ContactPhone;
 import com.storepoints.dto.ContactPhoneList;
@@ -36,7 +38,6 @@ public class StorePointsServiceImpl implements StorePointsService {
 			}
 		}
 		
-		
 		if(accountId==null){
 			return null;
 		}
@@ -56,13 +57,15 @@ public class StorePointsServiceImpl implements StorePointsService {
 
 			System.out.println("StorePointsAccountsTable size:"+StorePointsAccountsTable.getAccounts().size());
 			
-			
-			
 			if(account.getAccountid().equals(accountId)){
-				for(Store store: StorePointsStoresTable.getStores()) {
-					System.out.println("StorePointsStoresTable size:"+StorePointsStoresTable.getStores().size());
 				
-					if(store.getStoreid().equals(account.getStoreid()) && store.getStoreType().toString().equals(storeType)){
+				List<Store> stores=StorePointsStoresTable.getStores();
+				List<Store> storesCopy= new ArrayList<Store>(stores);
+				
+				for(Store store: storesCopy) {
+					System.out.println("StorePointsStoresTable size:"+storesCopy.size());
+				
+					if(store.getStoreId().equals(account.getStoreid()) && store.getStoreType().toString().equals(storeType)){
 						AccountData accountData = new AccountData();
 						accountData.setAccountid(account.getAccountid());
 						accountData.setStoreid(account.getStoreid());
@@ -85,8 +88,19 @@ public class StorePointsServiceImpl implements StorePointsService {
 	}
 
 	@Override
-	public void addStore(Store store) {
-		// TODO Auto-generated method stub
+	public Status addStore(Store store) {
+		
+		Status returnObj= new Status();
+		
+		AddStoreSPRESTServiceClient addStoreSPRESTServiceClient= new AddStoreSPRESTServiceClient(store);
+		
+		addStoreSPRESTServiceClient.makePutServiceCall();
+		
+		System.out.println("Status of adding the store:"+addStoreSPRESTServiceClient.getStoredStatus());
+		
+		returnObj.setStatus(addStoreSPRESTServiceClient.getStoredStatus());
+
+		return returnObj;
 		
 	}
 
@@ -94,6 +108,12 @@ public class StorePointsServiceImpl implements StorePointsService {
 	public List<User> getUserList(String storeId, String accessKey) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+	
+	@Override
+	public List<Store> getStores(){
+		
+		return StorePointsStoresTable.getStores();
 	}
 	
 }
