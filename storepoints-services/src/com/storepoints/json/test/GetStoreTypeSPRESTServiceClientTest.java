@@ -1,11 +1,11 @@
 package com.storepoints.json.test;
 
-import com.storepoints.couchdb.rs.client.GetStoreTypeSPRESTServiceClient;
+import com.storepoints.couchdb.rs.client.GetStoreTypeRESTServiceClient;
 
 public class GetStoreTypeSPRESTServiceClientTest {
 	
 	public static void main(String arg[]){
-		GetStoreTypeSPRESTServiceClient getStoreTypeSPRESTServiceClient= new GetStoreTypeSPRESTServiceClient();
+		GetStoreTypeRESTServiceClient getStoreTypeSPRESTServiceClient= new GetStoreTypeRESTServiceClient();
 		getStoreTypeSPRESTServiceClient.makeGetServiceCall();
 		
 		

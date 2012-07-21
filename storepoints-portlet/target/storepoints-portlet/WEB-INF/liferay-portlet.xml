@@ -5,11 +5,15 @@
  	<portlet>
  		<portlet-name>StorePointsViewer</portlet-name>
  		<instanceable>true</instanceable>
+ 		<header-portlet-css>/js/ext/resources/css/ext-all.css</header-portlet-css>
+		<header-portlet-javascript>/js/ext/ext-all.js?js_fast_load=0</header-portlet-javascript>
  	</portlet>
 
   <portlet>
  		<portlet-name>StorePointsAdmin</portlet-name>
  		<instanceable>true</instanceable>
+ 		<header-portlet-css>/js/ext/resources/css/ext-all.css</header-portlet-css>
+		<header-portlet-javascript>/js/ext/ext-all.js?js_fast_load=0</header-portlet-javascript>
  	</portlet>
  	
 	<role-mapper>

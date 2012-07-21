@@ -3,7 +3,7 @@ package com.storepoints.memcached.data;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.storepoints.couchdb.rs.client.GetStoresSPRESTServiceClient;
+import com.storepoints.couchdb.rs.client.GetStoresRESTServiceClient;
 import com.storepoints.dto.Store;
 import com.storepoints.dto.StoreType;
 
@@ -15,11 +15,11 @@ public class StorePointsStoresTable {
 
 	static {
 		
-		GetStoresSPRESTServiceClient getStoresSPRESTServiceClient= new GetStoresSPRESTServiceClient(stores, true);
+		GetStoresRESTServiceClient getStoresSPRESTServiceClient= new GetStoresRESTServiceClient(stores, true);
 		getStoresSPRESTServiceClient.makeGetServiceCall();
 		_rev=getStoresSPRESTServiceClient.getRevision();
 		
-		getStoresSPRESTServiceClient= new GetStoresSPRESTServiceClient(stores, false);
+		getStoresSPRESTServiceClient= new GetStoresRESTServiceClient(stores, false);
 		getStoresSPRESTServiceClient.makeGetServiceCall();
 		
 	}
@@ -29,13 +29,13 @@ public class StorePointsStoresTable {
 		try{
 
 		List<Store> storesLatest = new ArrayList<Store>();
-		GetStoresSPRESTServiceClient getStoresSPRESTServiceClient= new GetStoresSPRESTServiceClient(storesLatest, true);
+		GetStoresRESTServiceClient getStoresSPRESTServiceClient= new GetStoresRESTServiceClient(storesLatest, true);
 		getStoresSPRESTServiceClient.makeGetServiceCall();
 		String _revLatest=getStoresSPRESTServiceClient.getRevision();
 		
 		if(!_rev.equals(_revLatest)){
 			
-			getStoresSPRESTServiceClient= new GetStoresSPRESTServiceClient(storesLatest, false);
+			getStoresSPRESTServiceClient= new GetStoresRESTServiceClient(storesLatest, false);
 			getStoresSPRESTServiceClient.makeGetServiceCall();
 			
 			for(Store store:storesLatest){

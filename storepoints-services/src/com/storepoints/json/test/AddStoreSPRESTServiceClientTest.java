@@ -1,6 +1,6 @@
 package com.storepoints.json.test;
 
-import com.storepoints.couchdb.rs.client.AddStoreSPRESTServiceClient;
+import com.storepoints.couchdb.rs.client.AddStoreRESTServiceClient;
 import com.storepoints.dto.Store;
 import com.storepoints.dto.StoreType;
 
@@ -15,7 +15,7 @@ public class AddStoreSPRESTServiceClientTest {
 		store.setStoreName("New Store 1.4");
 		store.setStoreType(StoreType.FURNITURES);
 		
-		AddStoreSPRESTServiceClient addStoreSPRESTServiceClient= new AddStoreSPRESTServiceClient(store);
+		AddStoreRESTServiceClient addStoreSPRESTServiceClient= new AddStoreRESTServiceClient(store);
 		
 		addStoreSPRESTServiceClient.makePutServiceCall();
 		

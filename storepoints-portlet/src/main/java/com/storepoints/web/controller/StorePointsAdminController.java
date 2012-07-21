@@ -1,10 +1,16 @@
 package com.storepoints.web.controller;
 
 
+import java.io.IOException;
+
 import javax.portlet.ActionRequest;
 import javax.portlet.ActionResponse;
 import javax.portlet.RenderRequest;
 import javax.portlet.RenderResponse;
+import javax.portlet.ResourceRequest;
+import javax.portlet.ResourceResponse;
+
+
 import javax.portlet.PortletPreferences;
 import javax.portlet.PortletSession;
 
@@ -17,6 +23,8 @@ import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.portlet.bind.annotation.ResourceMapping;
+
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.portlet.bind.PortletRequestDataBinder;
 
@@ -72,6 +80,26 @@ public class StorePointsAdminController {
 	}
 	
 	
+	@ResourceMapping(value="doAjax")
+	public void doAjax(ResourceRequest request, ResourceResponse response, @RequestParam
+	String storeName, String storeType){
+	response.setContentType("application/x-json");
+	
+		StoreForm storeForm= new StoreForm();
+		storeForm.setStoreName(storeName);
+		storeForm.setStoreType(storeType);
+		
+		AddStoreServiceClient addStoreServiceClient = new AddStoreServiceClient(storeForm);
+		
+		addStoreServiceClient.makeServiceCall();
+	
+		try{
+		response.getWriter().print("Store "+storeName+ " stored.");
+		}catch(IOException excp){
+			
+		}
+	}	
+	
 	@RequestMapping(params = "action=createStore")
 	public String createStore(Model model,
 			RenderRequest renderRequest,
@@ -101,6 +129,29 @@ public class StorePointsAdminController {
 		
 		response.setRenderParameter("action", "");
 	}
+	
+	@RequestMapping(params = "action=createStorePut2")
+	public void createStorePut(
+			ActionRequest request,
+			ActionResponse response,
+			@RequestParam("storeName") String storeName,
+			@RequestParam("storeType") String storeType,
+			BindingResult result, Model model) {
+		
+		StoreForm storeForm= new StoreForm();
+		storeForm.setStoreName(storeName);
+		storeForm.setStoreType(storeType);
+		
+		AddStoreServiceClient addStoreServiceClient = new AddStoreServiceClient(storeForm);
+		
+		addStoreServiceClient.makeServiceCall();
+		if(addStoreServiceClient.isStoredStatus()){
+			response.setRenderParameter("statusMessage","Store "+storeForm.getStoreName()+" added successfully.");
+		}
+		
+		response.setRenderParameter("action", "");
+	}
+
 	
 	@RequestMapping(params = "action=listStores")
 	public String listStores(Model model,

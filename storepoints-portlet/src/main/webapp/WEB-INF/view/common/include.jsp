@@ -11,7 +11,8 @@
 <portlet:defineObjects/>
 <%--<span class="banner">
 	<%=renderRequest.getPortletSession().getAttribute("banner")%>
-</span>  --%>
+</span> 
 <span class="version">
 	v1.0.0.0
 </span>
+ --%>

@@ -20,6 +20,7 @@ public class AddStoreServiceClient extends AbstractSPServiceClient {
 	
 	public AddStoreServiceClient(StoreForm storeForm){
 		this.storeForm=storeForm;
+		System.out.println("AddStore called with "+storeForm.getStoreName()+" and "+storeForm.getStoreType());
 	}
 
 	public boolean isStoredStatus() {

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import com.storepoints.couchdb.rs.client.AddStoreSPRESTServiceClient;
+import com.storepoints.couchdb.rs.client.AddStoreRESTServiceClient;
 import com.storepoints.dto.Account;
 import com.storepoints.dto.ContactPhone;
 import com.storepoints.dto.ContactPhoneList;
@@ -14,7 +14,7 @@ import com.storepoints.dto.User;
 import com.storepoints.memcached.data.SPUsersAccountsMapperTable;
 import com.storepoints.memcached.data.StorePointsAccountsTable;
 import com.storepoints.memcached.data.StorePointsStoresTable;
-import com.storepoints.memcached.data.StorePointsUsersTable;
+import com.storepoints.memcached.data.StorePointsUsersDAO;
 
 @javax.jws.WebService(portName = "StorePointsServiceImplPort", serviceName = "StorePointsService")
 public class StorePointsServiceImpl implements StorePointsService {
@@ -25,7 +25,8 @@ public class StorePointsServiceImpl implements StorePointsService {
 		
 		String accountId = null;
 		
-		List<User> users =StorePointsUsersTable.getUsers();
+//		List<User> users =StorePointsUsersDAO.getUser(userContactId);
+		User user = StorePointsUsersDAO.getUser(userContactId);
 		
 		for(User user: users){
 			ContactPhoneList contactPhoneList =user.getContactPhoneList();
@@ -92,7 +93,7 @@ public class StorePointsServiceImpl implements StorePointsService {
 		
 		Status returnObj= new Status();
 		
-		AddStoreSPRESTServiceClient addStoreSPRESTServiceClient= new AddStoreSPRESTServiceClient(store);
+		AddStoreRESTServiceClient addStoreSPRESTServiceClient= new AddStoreRESTServiceClient(store);
 		
 		addStoreSPRESTServiceClient.makePutServiceCall();
 		
