@@ -29,7 +29,7 @@ public class StorePointsClient {
 //		for(AccountData accountData: getAccountsRs.getAccountDataList().getAccountData()){
 		for(AccountData accountData: accountDataList){
 
-			System.out.println("Accounts: getId:"+accountData.getAccountid());
+			System.out.println("Accounts: getId:"+accountData.getAccountId());
 			
 			System.out.println("Accounts: storeName:"+accountData.getStoreName());
 			
