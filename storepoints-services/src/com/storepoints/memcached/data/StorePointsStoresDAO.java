@@ -3,15 +3,21 @@ package com.storepoints.memcached.data;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.storepoints.couchdb.rs.client.GetStoreRESTServiceClient;
 import com.storepoints.couchdb.rs.client.GetStoresRESTServiceClient;
 import com.storepoints.dto.Store;
 import com.storepoints.dto.StoreType;
 
-public class StorePointsStoresTable {
+public class StorePointsStoresDAO {
 
 	private static List<Store> stores = new ArrayList<Store>();
 	
 	private static String _rev="";
+	
+	
+	public StorePointsStoresDAO(){
+		
+	}
 
 	static {
 		
@@ -24,7 +30,7 @@ public class StorePointsStoresTable {
 		
 	}
 	
-	public static List<Store> getStores() {
+	public List<Store> getStores() {
 		
 		try{
 
@@ -50,6 +56,17 @@ public class StorePointsStoresTable {
 		}
 		
 		return stores;
+	}
+	
+	
+	public Store getStore(String storeId){
+		
+		GetStoreRESTServiceClient getStoreSPRESTServiceClient= new GetStoreRESTServiceClient(storeId);
+		getStoreSPRESTServiceClient.makeGetServiceCall();
+		
+		return getStoreSPRESTServiceClient.getStore();
+
+		
 	}
 
 	

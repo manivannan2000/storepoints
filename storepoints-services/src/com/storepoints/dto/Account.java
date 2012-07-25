@@ -4,23 +4,10 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name = "StoreAccount")
 public class Account {
 	
-	/**
-	 * version V1 for storepoints.
-	 */
-	private String accountid;
-
-	private String storeid;
+	private String accountId;
 
 	private int storePoint;
 
-	public String getStoreid() {
-		return storeid;
-	}
-
-	public void setStoreid(String storeid) {
-		this.storeid = storeid;
-	}
-	
 	public int getStorePoint() {
 		return storePoint;
 	}
@@ -29,12 +16,13 @@ public class Account {
 		this.storePoint = storePoint;
 	}
 
-	public String getAccountid() {
-		return accountid;
+	public String getAccountId() {
+		return accountId;
 	}
 
-	public void setAccountid(String accountid) {
-		this.accountid = accountid;
+	public void setAccountId(String accountId) {
+		this.accountId = accountId;
 	}
+
 	
 }

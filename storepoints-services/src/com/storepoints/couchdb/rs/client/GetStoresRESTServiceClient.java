@@ -17,7 +17,10 @@ public class GetStoresRESTServiceClient extends AbstractRESTServiceClient {
 	
 	boolean revisionOnly;
 	
-
+	@Override
+	protected String getRESTUrl(){
+		return	"http://localhost:5984/storepoints_dev";
+	}
 
 	public List<Store> getStores() {
 		return stores;

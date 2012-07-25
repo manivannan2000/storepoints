@@ -2,29 +2,15 @@ package com.storepoints.service;
 
 public class AccountData {
 	
-	private String accountid;
+	private String accountId;
 	
-	private String storeid;
+	private String storeId;
 	
 	private String storeName;
+	
+	private String storeLandMark;
 
 	private int storePoint;
-
-	public String getAccountid() {
-		return accountid;
-	}
-
-	public void setAccountid(String accountid) {
-		this.accountid = accountid;
-	}
-
-	public String getStoreid() {
-		return storeid;
-	}
-
-	public void setStoreid(String storeid) {
-		this.storeid = storeid;
-	}
 
 	public String getStoreName() {
 		return storeName;
@@ -41,5 +27,28 @@ public class AccountData {
 	public void setStorePoint(int storePoint) {
 		this.storePoint = storePoint;
 	}
+	
+	public String getStoreLandMark() {
+		return storeLandMark;
+	}
 
+	public void setStoreLandMark(String storeLandMark) {
+		this.storeLandMark = storeLandMark;
+	}
+	
+	public String getAccountId() {
+		return accountId;
+	}
+
+	public void setAccountId(String accountId) {
+		this.accountId = accountId;
+	}
+	
+	public String getStoreId() {
+		return storeId;
+	}
+
+	public void setStoreId(String storeId) {
+		this.storeId = storeId;
+	}
 }

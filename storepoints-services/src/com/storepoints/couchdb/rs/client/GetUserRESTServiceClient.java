@@ -32,6 +32,12 @@ public class GetUserRESTServiceClient extends AbstractRESTServiceClient {
 	}
 
 	@Override
+	protected String getRESTUrl(){
+		return	"http://localhost:5984/storepoints_dev";
+	}
+
+	
+	@Override
 	protected String getSPRESTServiceRequest() {
 		return "_design/storeusers/_view/by_phonenumber_get_user?key=%22"+getContactId()+"%22";
 	}
@@ -113,6 +119,15 @@ public class GetUserRESTServiceClient extends AbstractRESTServiceClient {
 			}
 			
 			user.setContactEmailList(contactEmailList);
+			
+			JSONArray storeListJSONArray = (JSONArray)userJSONObject.get("userStoreList");
+			
+			for(int i=0;i<storeListJSONArray.size();i++){
+				user.getStoreList().add(storeListJSONArray.getString(i));
+			}
+			
+			
+
 			
 			
 		}

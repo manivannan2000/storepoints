@@ -8,7 +8,7 @@ import net.sf.json.JSONSerializer;
 
 import com.storepoints.dto.Store;
 import com.storepoints.dto.Stores;
-import com.storepoints.memcached.data.StorePointsStoresTable;
+import com.storepoints.memcached.data.StorePointsStoresDAO;
 
 public class AddStoreRESTServiceClient extends AbstractRESTServiceClient {
 
@@ -30,6 +30,11 @@ public class AddStoreRESTServiceClient extends AbstractRESTServiceClient {
 	}
 	
 	@Override
+	protected String getRESTUrl(){
+		return	"http://localhost:5984/storepoints_dev";
+	}
+	
+	@Override
 	protected String getSPRESTServiceRequest() {
 		return "stores";
 	}
@@ -40,7 +45,7 @@ public class AddStoreRESTServiceClient extends AbstractRESTServiceClient {
 		Stores stores = new Stores();
 		
 		stores.setTitle("stores");
-		List<Store> storesList = StorePointsStoresTable.getStores();
+		List<Store> storesList = (new StorePointsStoresDAO()).getStores();
 		
 		GetStoresRESTServiceClient getStoresSPRESTServiceClient= new GetStoresRESTServiceClient(storesList, true);
 		getStoresSPRESTServiceClient.makeGetServiceCall();

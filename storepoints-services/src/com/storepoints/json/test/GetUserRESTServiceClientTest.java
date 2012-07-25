@@ -1,5 +1,7 @@
 package com.storepoints.json.test;
 
+import java.util.List;
+
 import com.storepoints.couchdb.rs.client.GetUserRESTServiceClient;
 import com.storepoints.dto.ContactEmailList;
 import com.storepoints.dto.User;
@@ -23,8 +25,11 @@ public class GetUserRESTServiceClientTest {
 			System.out.println("Contact emailList is not null");
 		else
 			System.out.println("Contact emailList is null");
-			
 		
+		
+		List<String> storeList = user.getStoreList();
+		
+		System.out.println("StoreList size:"+storeList.size());
 
 	}
 

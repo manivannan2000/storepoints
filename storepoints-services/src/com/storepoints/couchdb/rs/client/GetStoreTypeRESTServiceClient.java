@@ -6,6 +6,12 @@ import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
 public class GetStoreTypeRESTServiceClient extends AbstractRESTServiceClient {
+	
+	
+	@Override
+	protected String getRESTUrl(){
+		return	"http://localhost:5984/storepoints_dev";
+	}
 
 	@Override
 	protected String getSPRESTServiceRequest() {

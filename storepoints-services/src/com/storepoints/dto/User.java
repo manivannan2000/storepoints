@@ -1,5 +1,8 @@
 package com.storepoints.dto;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 
 public class User {
@@ -9,6 +12,8 @@ public class User {
 	private ContactPhoneList contactPhoneList;
 	
 	private ContactEmailList contactEmailList;
+	
+	private List<String> storeList;
 	
 	private String firstName;
 	
@@ -52,6 +57,15 @@ public class User {
 
 	public void setUserId(String userId) {
 		this.userId = userId;
+	}
+	
+	
+	public List<String> getStoreList(){
+		if(storeList==null){
+			storeList = new ArrayList<String>();
+		}
+
+		return storeList;
 	}
 
  

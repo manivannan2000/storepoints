@@ -15,6 +15,8 @@ public  abstract class AbstractRESTServiceClient {
 	
 	protected abstract String getSPRESTPostData();
 	
+	protected abstract String getRESTUrl();
+	
 	
 	protected abstract void inflateResponse( Object responseObj);
 	
@@ -25,7 +27,7 @@ public  abstract class AbstractRESTServiceClient {
 			HttpClient client = new HttpClient();
 
 			PutMethod putMethod = new PutMethod(
-					"http://localhost:5984/storepoints_dev/"
+					getRESTUrl()+"/"
 							+ getSPRESTServiceRequest());
 
 			putMethod.setRequestHeader("Content-type", "application/json");

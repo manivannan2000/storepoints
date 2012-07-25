@@ -7,7 +7,7 @@ import net.sf.json.JsonConfig;
 import net.sf.json.JSONSerializer;
 
 import com.storepoints.dto.Stores;
-import com.storepoints.memcached.data.StorePointsStoresTable;
+import com.storepoints.memcached.data.StorePointsStoresDAO;
 
 public class JavaToJSONTest {
 	
@@ -20,7 +20,7 @@ public class JavaToJSONTest {
 		
 		stores.setTitle("stores");
 		
-		stores.setStoreList(StorePointsStoresTable.getStores());
+		stores.setStoreList((new StorePointsStoresDAO()).getStores());
 
 		String storesJSON = JSONSerializer.toJSON(stores).toString();
 		
