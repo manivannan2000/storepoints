@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/amplify/!svn/ver/2/CISCOADX/SourceCode/ADX3/tags/1.0.0.11/adx-theme/WebContent/WEB-INF/classes
+END
+logging.properties
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/amplify/!svn/ver/2/CISCOADX/SourceCode/ADX3/tags/1.0.0.11/adx-theme/WebContent/WEB-INF/classes/logging.properties
+END
+log4j.properties
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/amplify/!svn/ver/2/CISCOADX/SourceCode/ADX3/tags/1.0.0.11/adx-theme/WebContent/WEB-INF/classes/log4j.properties
+END

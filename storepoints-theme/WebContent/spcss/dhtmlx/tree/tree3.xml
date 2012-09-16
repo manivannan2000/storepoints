@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='iso-8859-1'?>
+<tree id="0">
+	<item text="Networks" id="network_1" open="1" im0="tombs.gif" im1="tombs.gif" im2="iconSafe.gif" call="1" select="1">
+		<item text="Network1.1" id="network1.1" im0="folderClosed.gif" im1="folderOpen.gif" im2="folderClosed.gif">
+			<item text="Channel" id="lb_1" im0="book_titel.gif" im1="book.gif" im2="book_titel.gif">
+				<item text="Screen 1" id="lb_1_1" im0="book_titel.gif" im1="book.gif" im2="book_titel.gif"/>
+				<item text="Screen 2" id="lb_1_2" im0="book_titel.gif" im1="book.gif" im2="book_titel.gif"/>
+			</item>
+			<item text="Channel" id="lb_2" im0="book_titel.gif" im1="book.gif" im2="book_titel.gif">
+				<item text="Screen 1" id="lb_2_1" im0="book_titel.gif" im1="book.gif" im2="book_titel.gif"/>
+				<item text="Screen 2" id="lb_2_2" im0="book_titel.gif" im1="book.gif" im2="book_titel.gif"/>
+			</item>
+ 		</item>
+	</item>
+	<item text="Networks 2" id="network_2" open="1" im0="tombs.gif" im1="tombs.gif" im2="iconSafe.gif" call="1" select="1">
+		<item text="Network2.1" id="network2.1" im0="folderClosed.gif" im1="folderOpen.gif" im2="folderClosed.gif">
+			<item text="Channel" id="lb_3" im0="book_titel.gif" im1="book.gif" im2="book_titel.gif">
+				<item text="Screen 1" id="lb_3_1" im0="book_titel.gif" im1="book.gif" im2="book_titel.gif"/>
+				<item text="Screen 2" id="lb_3_2" im0="book_titel.gif" im1="book.gif" im2="book_titel.gif"/>
+			</item>
+			<item text="Channel" id="lb_4" im0="book_titel.gif" im1="book.gif" im2="book_titel.gif">
+				<item text="Screen 1" id="lb_4_1" im0="book_titel.gif" im1="book.gif" im2="book_titel.gif"/>
+				<item text="Screen 2" id="lb_4_2" im0="book_titel.gif" im1="book.gif" im2="book_titel.gif"/>
+			</item>
+ 		</item>
+	</item>
+</tree> 

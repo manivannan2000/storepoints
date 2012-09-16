@@ -1,0 +1,15 @@
+/**
+  * 
+  Main CSS Document for StorePoints  that includes all the CSS files
+  *@author StorePoints Inc.
+  *
+  */
+
+@import url(../spcss/storepointsglobal.css);
+
+@import url(../spcss/storepoints_theme.css);
+
+	/* CSS Document for Printing Reports */
+@import url(../spcss/storepoints_theme.css);
+
+  

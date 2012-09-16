@@ -1,0 +1,22 @@
+#set ($portlet_display = $portletDisplay)
+
+#set ($portlet_id = $portlet_display.getId())
+#set ($portlet_title = $portlet_display.getTitle())
+#set ($portlet_content = $portlet_display.getContent())
+#set ($portlet_back_url = $portlet_display.getURLBack())
+#set ($portlet_edit_url = $portlet_display.getURLEdit())
+
+
+<div id="portlet-wrapper-$portlet_id">
+	
+	$portlet_content
+ 
+</div>
+
+
+<script type="text/javascript">
+try{icuesConvertCallbacks('portlet-wrapper-$portlet_id');}catch(e){}
+try{setTimeout("icuesPortletMoved('portlet-wrapper-$portlet_id')",250);}catch(e){}
+</script>
+
+

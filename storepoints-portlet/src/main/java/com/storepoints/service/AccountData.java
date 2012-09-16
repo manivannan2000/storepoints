@@ -16,10 +16,11 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="accountid" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="accountId" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="storeId" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="storeLandMark" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="storeName" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="storePoint" type="{http://www.w3.org/2001/XMLSchema}int"/>
- *         &lt;element name="storeid" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -30,40 +31,90 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "accountData", propOrder = {
-    "accountid",
+    "accountId",
+    "storeId",
+    "storeLandMark",
     "storeName",
-    "storePoint",
-    "storeid"
+    "storePoint"
 })
 public class AccountData {
 
-    protected String accountid;
+    protected String accountId;
+    protected String storeId;
+    protected String storeLandMark;
     protected String storeName;
     protected int storePoint;
-    protected String storeid;
 
     /**
-     * Gets the value of the accountid property.
+     * Gets the value of the accountId property.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getAccountid() {
-        return accountid;
+    public String getAccountId() {
+        return accountId;
     }
 
     /**
-     * Sets the value of the accountid property.
+     * Sets the value of the accountId property.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setAccountid(String value) {
-        this.accountid = value;
+    public void setAccountId(String value) {
+        this.accountId = value;
+    }
+
+    /**
+     * Gets the value of the storeId property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getStoreId() {
+        return storeId;
+    }
+
+    /**
+     * Sets the value of the storeId property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setStoreId(String value) {
+        this.storeId = value;
+    }
+
+    /**
+     * Gets the value of the storeLandMark property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getStoreLandMark() {
+        return storeLandMark;
+    }
+
+    /**
+     * Sets the value of the storeLandMark property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setStoreLandMark(String value) {
+        this.storeLandMark = value;
     }
 
     /**
@@ -104,30 +155,6 @@ public class AccountData {
      */
     public void setStorePoint(int value) {
         this.storePoint = value;
-    }
-
-    /**
-     * Gets the value of the storeid property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getStoreid() {
-        return storeid;
-    }
-
-    /**
-     * Sets the value of the storeid property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setStoreid(String value) {
-        this.storeid = value;
     }
 
 }

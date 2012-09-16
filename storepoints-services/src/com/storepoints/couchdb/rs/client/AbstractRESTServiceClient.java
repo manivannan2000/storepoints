@@ -76,7 +76,7 @@ public  abstract class AbstractRESTServiceClient {
 			HttpClient client = new HttpClient();
 
 			GetMethod getMethod = new GetMethod(
-					"http://localhost:5984/storepoints_dev/"
+					getRESTUrl()+"/"
 							+ getSPRESTServiceRequest());
 
 			getMethod.setRequestHeader("Content-type", "application/json");

@@ -1,0 +1,292 @@
+@charset "utf-8";
+/**
+  * 
+  CSS Document for StorePoints  
+  *@author StorePoints Inc.
+  *
+  */
+  
+/*------------------- HTML Tag properties for theme ------------------------*/
+body{background:#c5dcfc  left top no-repeat;}
+body{font-family: Arial, Helvetica, sans-serif;}
+
+a, em, span, ul, li, ol, p, img, div, table, form, fieldset, legend, dl, dt, dd, input, textarea, select, * {list-style:none;}
+a, em, span, ul, li, ol, p, img, div, table, form, fieldset, legend, dl, dt, dd, input, textarea, select, * {border:none;}
+
+h1, h2, h3, h4, h5, h6{border:none;}
+input, textarea, select{font-family:Arial, Helvetica, sans-serif;}
+	
+a {color:#0E58A0;}
+a {text-decoration:none;}
+a:hover, a:active, a:visited, a:focus {text-decoration:none;}
+
+.reqField, .mandatory{background:url(../imagesLR/reqField.png) left no-repeat;}
+
+h1{background:url(../imagesN/logo.png) left top no-repeat;}
+
+
+
+/**START
+**/
+
+/*h1 label{background:url(../imagesLR/amplify.png) left top no-repeat;}*/
+h1 label{color:#fff;}
+h1 span{color:#fff;}
+h2{color:#014884;}
+h3{background:url(../imagesLR/blockHeads.png) left top repeat-x;}
+h3{border-top:1px solid #99bbe8;}
+h3{border-bottom:1px solid #99bbe8;}
+h3 label{color:#15428b;}
+h3 .filterBlock ul li{list-style:none;}
+h3 .filterBlock ul.button li{list-style:none;}
+h3 .filterBlock ul.button li input{background:none;}
+h3 .filterBlock ul.button li input{border:none;}
+h3 .filterBlock ul.button li input:hover{background:none;}
+h3 .filterBlock ul.button li input:hover{background:none;}
+h3 .filterBlock ul.button li{color:#001c49;}
+h3 .filterBlock ul.button li:hover{color:#003348;}
+h4{background:url(../imagesLR/headFour_bg.png) left top repeat-x;}
+h4 label{color:#fff;}
+h4 span{color:#b4ecfe;}
+h5{background:url(../imagesLR/headFive_bg.png) left top repeat-x;}
+h5 label{color:#fff;}
+h6{background:url(../imagesLR/toggleBg.png) left top repeat-x;}
+h6 label{color:#15428B;}
+.banner{color:#fff;}
+.version{color:#fff;}
+
+#iContainer{background:none;}
+
+#iHeader strong{color:#fff;}
+
+ul.headLinks{color:#fff;}
+ul.headLinks li a{color:#fff;}
+ul.headLinks li a.profile{background:url(../imagesLR/btnProfile.png) left top no-repeat;}
+ul.headLinks li a.feedback{background:url(../imagesLR/btnFeedback.png) left top no-repeat;}
+ul.headLinks li a.help{background:url(../imagesLR/btnHelp.png) left top no-repeat;}
+ul.headLinks li a{text-decoration:underline;}
+ul.headLinks li{list-style:none;}
+	
+.menuContent{background:url(../imagesLR/menu_ct.png) left top repeat-x;}
+.menuContent span.menuLeft{background:#4382AD url(../imagesLR/menu_lt.png) left top no-repeat;}
+.menuContent span.menuRight{background:#041936 url(../imagesLR/menu_rt.png) right top no-repeat;}
+ul.menuAction{color:#fff;}
+ul.menuAction li a{color:#fff;}
+ul.menuAction li a:hover{color:#000;}
+ul.menuAction li a:active{color:#fff;}
+ul.menuAction li a.current{color:#fff;}
+ul.menuAction li a:hover{background:url(../imagesLR/primaryTabHoverLeft.png) left top no-repeat;}
+ul.menuAction li a:hover span{background:url(../imagesLR/primaryTabHoverRight.png) right top no-repeat;}
+ul.menuAction li a:hover span{color:#000;}
+ul.menuAction li a.current{background:url(../imagesLR/primaryTabActiveLeft.png) left top no-repeat;}
+ul.menuAction li a.current span{background:url(../imagesLR/primaryTabActiveRight.png) right top no-repeat;}
+ul.menuAction li a.current span{color:#fff;}
+ul.menuAction li{list-style:none;}
+ul.menuAction li a{text-decoration:none;}
+ul.menuAction li a:hover{text-decoration:none;}
+ul.menuAction li a:active{text-decoration:none;}
+ul.menuAction li a:selected{text-decoration:none;}
+ul.menuAction li a.current{text-decoration:none;}
+	
+.pageHead{background:url(../imagesN/menubar_ct.png) left top repeat-x;}
+.pageHead span.topLeft{background:url(../imagesN/menubar_lt.png) left top no-repeat;}
+.pageHead span.topRight{background:url(../imagesN/menubar_rt.png) right top no-repeat;}
+.pageHead label{color:#014884;}
+.pageHead div.dtwo select{background:url(../imagesLR/selectBg.png) left top repeat-x;}
+.pageHead div.dtwo select{color:#fff;}
+.pageHead a{color:#005D84;}
+.pageHead a:hover{background:url(../imagesN/button_hover.png) left top no-repeat;}
+.pageHead a:active, .pageHead a:focus{background:url(../imagesN/button_active.png) left top no-repeat;}
+.pageHead a.current{background:url(../imagesN/button_active.png) left top no-repeat;}
+.pageHead a{text-decoration:none;}
+.pageHead a:hover{text-decoration:none;}
+.pageHead a:active, .pageHead a:focus{text-decoration:none;}
+.pageHead a.current{text-decoration:none;}
+	
+#iContent{background:none;}
+
+.columnLeft, .columnRight{background:#fff;}
+.columnLeft{background:#fff;}
+.columnLeft{border:none;}
+
+.columnAll, .columnAllLeft, .columnAllRight{background:#fff;}
+.columnAll, .columnAllLeft, .columnAllRight{color:#444444;}
+
+.columnAll table td a, .columnAllLeft table td a, .columnAllRight table td a{text-decoration:underline;}
+
+.collapseHead{background:url(../imagesLR/toggleBg.png) left top repeat-x;}
+.collapseHead{border-bottom:1px solid #99bbe8;}
+.collapseHead:hover{background:url(../imagesN/leftpane_hover.png) left top repeat-x;}
+ul.collapse li{color:#15428b;}
+
+.searchBlock{background:#f1f5fa;}
+.searchBlock{border:1px solid #CFDFF4;}
+.searchBlock label{background:url(../imagesLR/reqField.png) left no-repeat;}
+
+.infoBlock{background:#fff;}
+
+/*.fieldGroup{background:#f1f5fa;}
+.fieldGroup{border:1px solid #99BBE8;}*/
+/*.fieldBlockL{background:#F6F8FB;}*/
+.fieldBlockL{background:none;}
+.fieldBlockL{border:1px solid #99BBE8;}
+.fieldBlockR{background:none;}
+.fieldBlockR{border:1px solid #99BBE8;}
+.fieldBlockC{background:none;}
+.fieldBlockC{border:1px solid #99BBE8;}
+.fieldGroup legend{background:none;}
+.fieldGroup legend{color:#15428b;}
+.editLeft span{background:url(../imagesLR/reqField.png) left no-repeat;}
+/*.editRight{background:#D3E1F1;}
+.editRight{border-bottom:1px solid #f1f5fa;}
+.editRight input, .editRight select, .editRight textarea{border:1px solid #9cb5d9;}*/
+.editRight input, .editRight select, .editRight textarea{background-color:#fff;}
+.editRight .disabled{background:#f5f5f5;}
+.editRight .disabled{border:1px solid #d2d2d2;}
+.editRight .disabled{color:#000;}
+.editRight a{text-decoration:underline;}
+ul.yesNo li{list-style:none;}
+ul.yesNo li input{background:none;}
+ul.yesNo li input{border:none;}
+
+.collapseHeadData a, .collapseHeadData a:hover, .collapseHeadData a:active{text-decoration:none;}
+	
+table.tStatus{background:#CFDFF4;}
+table.tStatus tr{border:1px solid #CFDFF4;}
+table.tStatus tr{border-right:0;}
+table.tStatus td{background:#fff;}
+table.tStatus td{border-right:1px solid #CFDFF4;}
+table.tStatus th{background:#eeeff1;}
+table.tStatus th{border-right:1px solid #CFDFF4;}
+table.tStatus tr:hover td{background:#93b042 url(../imagesN/table_hover.png) left top repeat-x;}
+table.tStatus tr:hover td.blank{background:none;}
+table.tStatus tr:hover td{color:#fff;}
+table.tStatus th.title{background:#d3e1f1;}
+table.tStatus th.tbutton{background:#d3e1f1;}
+table.tStatus th.tbutton div{color:#264390;}
+	
+ul.pagination li{list-style:none;}
+ul.pagination li a.first{background:url(../imagesLR/pageFirst.png) left top no-repeat;}	
+ul.pagination li a.last{background:url(../imagesLR/pageLast.png) left top no-repeat;}
+ul.pagination li a.previous{background:url(../imagesLR/pagePrevious.png) left top no-repeat;}
+ul.pagination li a.next{background:url(../imagesLR/pageNext.png) left top no-repeat;}
+
+ul.button li{list-style:none;}
+ul.button li{background:url(../imagesLR/btn_ct.png) left top repeat-x;}	
+ul.button li.btnLt{background:url(../imagesLR/btn_lt.png) left top no-repeat;}
+ul.button li.btnRt{background:url(../imagesLR/btn_rt.png) right top no-repeat;}
+ul.button:hover li{background:url(../imagesLR/btnhover_ct.png) left top repeat-x;}	
+ul.button:hover li.btnLt{background:url(../imagesLR/btnhover_lt.png) left top no-repeat;}
+ul.button:hover li.btnRt{background:url(../imagesLR/btnhover_rt.png) right top no-repeat;}
+ul.button li{color:#001c49;}
+ul.button li a{color:#001c49;}
+ul.button li a{background:none;}
+ul.button li a:hover{color:#003348;}
+ul.button li a:hover{background:none;}
+ul.button li a{text-decoration:none;}
+ul.button li a:hover{text-decoration:none;}
+ul.button li input{background:none;}
+ul.button li input{color:#001c49;}
+ul.button li input{border:none;}
+ul.button li input:hover{border:none}
+ul.button li input:hover{background:none;}
+ul.button li input:hover{color:#003348;}
+.buttonContent{background:#94B4E3;}
+.buttonContent a{text-decoration:none;}
+.buttonList{background:#94B4E3;}
+.buttonList a{text-decoration:none;}
+.innerBtn{background:url(../imagesLR/btn_inner.png) left top no-repeat;}
+.innerBtn{border:none;}
+.innerBtn{color:#001c49;}
+.buttonL .evntSel{color:#001C49;}
+
+.textfield, .textfield10, .textfield15, .textfield20, .textfield30, .textfield35, .textfield40, .textfield50, .textfield60, .textfield70, .textfield80, .textfield90{background:#fff;}
+.textfield, .textfield10, .textfield15, .textfield20, .textfield30, .textfield35, .textfield40, .textfield50, .textfield60, .textfield70, .textfield80, .textfield90{border:1px solid #68A3EF;}
+.combofield, .combofield20, .combofield30, .combofield40, .combofield50, .combofield60, .combofield70, .combofield80, .combofield100{background:#fff;}
+.combofield, .combofield20, .combofield30, .combofield40, .combofield50, .combofield60, .combofield70, .combofield80, .combofield100{border:1px solid #68A3EF;}
+.multiplefield{background:#fff;}
+.multiplefield{border:1px solid #68A3EF;}
+.multipleuser{background:none;}
+.multipleuser{border:none;}
+.textarea, .textarea95{background:#fff;}
+.textarea, .textarea95{border:1px solid #68A3EF;}
+.filterfield, .filtertext{background:#fff;}
+.filterfield, .filtertext{border:1px solid #68A3EF;}
+.datefield{background:url(../imagesN/datepicker.png) 99% no-repeat;}
+.datefield{border:1px solid #68A3EF;}
+.timefield{background:#fff;}
+.timefield{border:1px solid #68A3EF;}
+.checkbox{background:#fff;}
+.checkbox{border:1px solid #68A3EF;}
+
+.horizontalrule{background:#c0d3e5;}
+
+.errors {color: #E9102A;}	
+.Warning{background:#F1F5FA;}
+/*.Warning{border:1px solid #a3baca;}*/
+.offerWarning{background:url(../imagesN/informational.png) left no-repeat;}
+.infomessage{color:#424242;}
+
+.ui-tabs{background:none;} 
+.ui-tabs li a, .tabs li span {background:url(../imagesLR/seconTabDefault.png) left top repeat-x;}
+.ui-tabs li a, .tabs li span {border:1px solid #2d4753;}
+.ui-tabs li a, .tabs li span {border-bottom:0;}
+.ui-tabs li a, .tabs li span {color: #fff;}
+.ui-tabs li a:hover, .ui-tabs li span:hover {background:url(../imagesLR/seconTabHover.png) left top repeat-x;}
+.ui-tabs li a:hover, .ui-tabs li span:hover {color: #000;}
+.ui-tabs li a:hover, .ui-tabs li span:hover {border:1px solid #60e4fb;}
+.ui-tabs li a:hover, .ui-tabs li span:hover {border-bottom:0;}	
+.ui-tabs li.current a, .ui-tabs li.current span {background:url(../imagesLR/seconTabActive.png) left top repeat-x;}
+.ui-tabs li.current a, .ui-tabs li.current span {border:1px solid #92b040;}
+.ui-tabs li.current a, .ui-tabs li.current span {border-bottom:0;}
+.ui-tabs li.current a, .ui-tabs li.current span {color: #fff;}
+
+.popupContent{border:5px solid #A2B9C9;}
+.popupContent{background:#fff;}
+/*.wholeBlock{border:1px solid #99BBE8;}
+.wholeBlock{background:#D9E3E9;}*/
+.recurrRight{border-left:1px solid #dde;}
+
+.messagearea{background:#D3E1F1;}
+.messagearea h2{background:	url(../imagesLR/info.png) left no-repeat;}
+.msgText {color:#1542AC;}
+.securityWarn{color:#fff;}
+
+.reportAction{background:url(../imagesLR/action_ct.png) left top repeat-x;}
+.reportAction span.reportLeft{background:#2a5987 url(../imagesLR/action_lt.png) left top no-repeat;}
+.reportAction span.reportRight{background:#041936 url(../imagesLR/action_rt.png) right top no-repeat;}	
+.reportAction a{color:#005D84;}
+.reportAction a{text-decoration:none;}
+.reportAction a:hover{background:url(../imagesN/button_hover.png) left top no-repeat;}
+.reportAction a:active, .reportAction a:focus{background:url(../imagesN/button_active.png) left top no-repeat;}
+.reportAction a.current{background:url(../imagesN/button_active.png) left top no-repeat;}
+.reportAction a:hover, .reportAction a:active, .reportAction a:focus, .reportAction a.current{text-decoration:none;}	
+.dAvailField{background:#C0D3E5;}
+.reportGroup{background:#fff;}
+.reportGroup{border:none;}
+.reportGroup legend{background:none;}
+.reportGroup legend{color:#15428b;}
+.reportOffGroup{background:#fff;}
+.reportR{border:1px solid #CFDFF4;}
+/*.reportBlock .editRight{background:#C0D3E5;}
+.reportBlock .editRight{border-bottom:1px solid #f1f5fa;}*/
+.reportDataHead{background:url(../imagesLR/rdatahead.png) left top repeat-x;}
+.reportDataHead{border-bottom:1px solid #99bbe8;}
+.reportDataHead span{color:#0088C2;}
+.reportDataHead a, .reportDataHead a:hover, .reportDataHead a:active{text-decoration:none;}
+.reportDataHead a img{border:none;}
+/** END
+**/
+
+
+
+#iFooter span{color:#000;}
+#iFooter a{color:#000;}
+#iFooter a{text-decoration:underline;}
+#iFooter label{background:url(../imagesLR/logoFooter.png) left top no-repeat;}
+
+/*------------------- HTML Tag properties for the DHTML support ------------------------*/
+.treeBlock{background:#fff;}
+	
+/*------------------- HTML Tag properties for IE6/7 ------------------------*/
+.datefield{ _background: right;}

@@ -1,16 +1,9 @@
 <%@ include file="/WEB-INF/view/common/include.jsp" %>
 
-<%--<%@ page contentType="text/html" isELIgnored="false" %>
-
-<%@ taglib prefix="c"       uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fmt"     uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ taglib prefix="fn"      uri="http://java.sun.com/jsp/jstl/functions" %>
-<%@ taglib prefix="portlet" uri="http://java.sun.com/portlet_2_0" %>
-<%@ taglib prefix="spring"  uri="http://www.springframework.org/tags" %>
-<%@ taglib prefix="form"    uri="http://www.springframework.org/tags/form" %>
-
 
 <portlet:defineObjects/>
+
+<%-- 
 <span class="banner">
 	<%=renderRequest.getPortletSession().getAttribute("banner")%>
 </span> 
@@ -21,7 +14,7 @@
  --%>
  
  
- 
+ <portlet:resourceURL var="doAjaxURL" id="doAjax" escapeXml="false" />
  
      <!-- page specific -->
     <style type="text/css">
@@ -72,6 +65,7 @@
 	    fields: [
 	       {name: 'accountid'},
 	       {name: 'storeName'},
+	       {name: 'storeLandMark'},
 	       {name: 'storePoint'}
 	    ],
 	    idProperty: 'accountid'
@@ -86,7 +80,7 @@
 	    // sample static data for the store
 	    var myData = [
 			<c:forEach items="${storepointsaccounts}" var="storePointsAccount" varStatus="status">		            	
-	            ['${storePointsAccount.accountid}','${storePointsAccount.storeName}','${storePointsAccount.storePoint}' ]  ${not status.last ? ',' : ''}        		
+	            ['${storePointsAccount.accountId}','${storePointsAccount.storeName}','${storePointsAccount.storeLandMark}','${storePointsAccount.storePoint}' ]  ${not status.last ? ',' : ''}        		
             </c:forEach>
             ];
 	
@@ -98,6 +92,7 @@
 	    
 	    // create the Grid
 	    var grid = Ext.create('Ext.grid.Panel', {
+      		url	:'${doAjaxURL}',
 	        store: storeAccounts,
 	        stateful: true,
 	        collapsible: true,
@@ -112,9 +107,15 @@
 	                  },
 	                  {
 	                      text     : 'Store Name',
-	                      width    : 100,
+	                      width    : 200,
 	                      sortable : true,
 	                      dataIndex: 'storeName'
+	                  },
+	                  {
+	                      text     : 'Store Landmark',
+	                      width    : 200,
+	                      sortable : true,
+	                      dataIndex: 'storeLandMark'
 	                  },
 	                  {
 	                      text     : 'Store Points',
@@ -131,8 +132,9 @@
 	                          icon   : 'http://store-points.com/Icons/Edit.png',  // Use a URL in the icon config
 	                          tooltip: 'View Transaction Details',
 	                          handler: function(grid, rowIndex, colIndex) {
-	                              var rec = store.getAt(rowIndex);
+	                              var rec = storeAccounts.getAt(rowIndex);
 	                              alert("View Transaction Details " + rec.get('accountid'));
+	                              window.location.href="<portlet:renderURL><portlet:param name='action' value='listStores'/></portlet:renderURL>";
 	                          }
 	                      }
 	                      ]

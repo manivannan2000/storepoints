@@ -1,4 +1,5 @@
-<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions name="StorePointsService" targetNamespace="http://service.storepoints.com/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://service.storepoints.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="StorePointsService" targetNamespace="http://service.storepoints.com/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://service.storepoints.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <wsdl:types>
 <xs:schema elementFormDefault="unqualified" targetNamespace="http://service.storepoints.com/" version="1.0" xmlns:tns="http://service.storepoints.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
 <xs:element name="addStore" type="tns:addStore"/>
@@ -48,10 +49,11 @@
 </xs:complexType>
 <xs:complexType name="accountData">
 <xs:sequence>
-<xs:element minOccurs="0" name="accountid" type="xs:string"/>
+<xs:element minOccurs="0" name="accountId" type="xs:string"/>
+<xs:element minOccurs="0" name="storeId" type="xs:string"/>
+<xs:element minOccurs="0" name="storeLandMark" type="xs:string"/>
 <xs:element minOccurs="0" name="storeName" type="xs:string"/>
 <xs:element name="storePoint" type="xs:int"/>
-<xs:element minOccurs="0" name="storeid" type="xs:string"/>
 </xs:sequence>
 </xs:complexType>
 <xs:complexType name="getStores">
@@ -64,8 +66,16 @@
 </xs:complexType>
 <xs:complexType name="store">
 <xs:sequence>
+<xs:element minOccurs="0" name="addressLine1" type="xs:string"/>
+<xs:element minOccurs="0" name="addressLine2" type="xs:string"/>
+<xs:element minOccurs="0" name="storeCityCode" type="xs:string"/>
+<xs:element minOccurs="0" name="storeCountryCode" type="xs:string"/>
+<xs:element minOccurs="0" name="storeDBHost" type="xs:string"/>
+<xs:element minOccurs="0" name="storeDBName" type="xs:string"/>
 <xs:element minOccurs="0" name="storeId" type="xs:string"/>
+<xs:element minOccurs="0" name="storeLandMark" type="xs:string"/>
 <xs:element minOccurs="0" name="storeName" type="xs:string"/>
+<xs:element minOccurs="0" name="storePostalCode" type="xs:string"/>
 <xs:element minOccurs="0" name="storeType" type="tns:storeType"/>
 </xs:sequence>
 </xs:complexType>

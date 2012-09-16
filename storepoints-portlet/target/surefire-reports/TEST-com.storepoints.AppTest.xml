@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite failures="0" time="0.019" errors="0" skipped="0" tests="1" name="com.storepoints.AppTest">
+<testsuite failures="0" time="0.016" errors="0" skipped="0" tests="1" name="com.storepoints.AppTest">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Libraries"/>
@@ -22,7 +22,7 @@
     <property name="basedir" value="/Users/manivannan2000/git/MyProjects/storepoints-portlet"/>
     <property name="java.endorsed.dirs" value="/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home/lib/endorsed"/>
     <property name="os.arch" value="x86_64"/>
-    <property name="surefire.real.class.path" value="/var/folders/zP/zPIeoxjnGQWvSkLx1UpmWk+++TI/-Tmp-/surefirebooter8408244741877086077.jar"/>
+    <property name="surefire.real.class.path" value="/var/folders/zP/zPIeoxjnGQWvSkLx1UpmWk+++TI/-Tmp-/surefirebooter9045668881646482430.jar"/>
     <property name="java.io.tmpdir" value="/var/folders/zP/zPIeoxjnGQWvSkLx1UpmWk+++TI/-Tmp-/"/>
     <property name="line.separator" value="
 "/>
@@ -46,7 +46,7 @@
     <property name="java.vm.specification.version" value="1.0"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="java.home" value="/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home"/>
-    <property name="sun.java.command" value="/var/folders/zP/zPIeoxjnGQWvSkLx1UpmWk+++TI/-Tmp-/surefirebooter8408244741877086077.jar /var/folders/zP/zPIeoxjnGQWvSkLx1UpmWk+++TI/-Tmp-/surefire2522740554548261733tmp /var/folders/zP/zPIeoxjnGQWvSkLx1UpmWk+++TI/-Tmp-/surefire1994078089059037964tmp"/>
+    <property name="sun.java.command" value="/var/folders/zP/zPIeoxjnGQWvSkLx1UpmWk+++TI/-Tmp-/surefirebooter9045668881646482430.jar /var/folders/zP/zPIeoxjnGQWvSkLx1UpmWk+++TI/-Tmp-/surefire3615014714574700566tmp /var/folders/zP/zPIeoxjnGQWvSkLx1UpmWk+++TI/-Tmp-/surefire417530702049879456tmp"/>
     <property name="java.specification.vendor" value="Sun Microsystems Inc."/>
     <property name="user.language" value="en"/>
     <property name="awt.toolkit" value="apple.awt.CToolkit"/>

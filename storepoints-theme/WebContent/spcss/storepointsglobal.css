@@ -1,0 +1,1639 @@
+@charset "utf-8";
+/**
+  * 
+  CSS Document for StorePoints
+  *@author StorePoints Inc.
+  *
+  */
+
+/*------------------- HTML Tag properties for the Tags ------------------------*/
+body, html, form{
+	margin:0;
+	padding:0;
+	}
+body{
+	width:100%;
+	height:100%;
+	text-align:center;	
+	-webkit-font-smoothing: antialiased;
+    text-rendering: optimizelegibility;
+	}
+a, em, span, ul, li, ol, p, img, div, table, form, fieldset, legend, dl, dt, dd, input, textarea, select, * {
+	margin:0;
+	padding:0;
+	font-style:normal;
+	font-weight:normal;
+	}
+h1, h2, h3, h4, h5, h6{
+	margin:0;
+	padding:0;
+	font-weight:normal;
+	}
+input, textarea, select{
+	font-size:12px;
+	}
+
+a {
+	font-size:12px;
+	}
+br{
+	clear:both;
+	display:block;
+	}
+	
+/*------------------- HTML Tag properties for the Generalised Data ------------------------*/
+.clear{
+	clear:both;
+	display:block;
+	}
+.reqField, .mandatory{
+	float:right;
+	width:12px;
+	height:12px;
+	}
+	
+/*------------------- HTML Tag properties for the Headers ------------------------*/
+h1{
+	height:69px;
+	width:100%;
+	float:left;
+	}
+h1 label{
+	font-size:24px;
+	float:left;
+	margin:15px 0 0 80px;
+	padding:4px 0;
+	display:block; 
+	clear:both;
+	}
+h1 span{
+	font-size:16px;
+	float:left;
+	margin:5px 0 0 80px;
+	padding:2px 0;
+	display:block; 
+	clear:both;
+	}
+
+h2{
+	font-size:16px;	
+	padding:5px 0 10px 5px;
+	display:block;
+	font-weight:bold;
+	width:190px;
+	}
+
+h3{	
+	width:100%;
+	height:25px;
+	clear:both;
+	display:block;
+	font-size:12px;
+	}
+h3 label{
+	float:left;
+	font-size:12px;
+	font-weight:bold;
+	padding:4px 0 0 5px;
+	width:40%;
+	}
+h3 .filterBlock{
+	float:right;
+	width:50%;
+	padding:3px 3px 0 0;
+	}
+h3 .filterBlock select{
+	float:right;
+	}
+h3 .filterBlock input{
+	float:right;
+	margin:0;
+	padding:2px;
+	}
+h3 .filterBlock ul{
+	float:right;
+	margin:0 2px;
+	}
+h3 .filterBlock ul.button{
+	float:right;
+	}
+h3 .filterBlock ul.button li{
+	font-size:11px;
+	font-weight:bold;
+	width:20px;
+	}
+h3 .filterBlock ul.button li.btnLt{
+	width:5px;
+	}
+h3 .filterBlock ul.button li.btnRt{
+	width:5px;
+	}
+h3 .filterBlock ul.button li input{
+	padding:0;
+	float:left;
+	}
+h3 span{
+	float:right;
+	padding:2px 5px 0 0;
+	}
+
+h4{	
+	width:100%;
+	height:24px;
+	clear:both;
+	display:block;
+	font-size:12px;
+	}
+h4 label{	
+	float:left;
+	padding:3px 0 0 5px;
+	font-size:12px;
+	font-weight:bold;
+	}
+h4 span{	
+	float:left;
+	padding:3px 0 0 5px;
+	font-size:12px;
+	font-weight:bold;
+	}
+h5{	
+	width:100%;
+	height:22px;
+	clear:both;
+	display:block;
+	font-size:12px;
+	}
+h5 label{	
+	float:left;
+	padding:3px 0 0 5px;
+	font-size:12px;
+	font-weight:bold;
+	}
+h6{	
+	width:100%;
+	height:22px;
+	clear:both;
+	display:block;
+	font-size:12px;
+	margin:10px 0 0 0;
+	}
+h6 label{	
+	float:left;
+	padding:3px 0 0 5px;
+	font-size:12px;
+	font-weight:bold;
+	}
+	
+.banner{
+	position:absolute; 
+	top:-65px;
+	left:80px;
+	float:left; 
+	font-size:12px;
+	font-weight:bold;
+	display:block;
+	z-index:1;
+	width:50%;
+	white-space:nowrap;
+	}
+.version{
+	position:absolute; 
+	top:-75px;
+	right:0;
+	float:left; 
+	font-size:12px;
+	font-weight:bold;
+	display:block;
+	z-index:1;
+	}
+	
+/*------------------ HTML Tag properties for the Container -------------------------*/
+#iContainer{
+	width:96%;
+	height:100%;
+	font-size:12px;
+	line-height:16px;
+	text-align:left;	
+	top:0;
+	right:0;
+	bottom:0;
+	left:2%;
+	position:absolute;
+	z-index:0;	
+	}
+	
+/*------------------ HTML Tag properties for the Header Contents ---------------------*/
+#iHeader{
+	width:100%;
+	height:auto;
+	float:left;
+	}
+#iHeader .logoShow{
+	float:left;
+	width:35%;
+	}
+#iHeader .logoShow img{
+	width:auto;
+	height:auto;
+}
+#iHeader .headLink{
+	float:right;
+	width:60%;
+	}
+#iHeader strong{
+	font-weight:bold;
+	float:right;
+	padding:10px 0 0 0;
+	}
+	
+ul.headLinks{
+	float:right;
+	width:100%;
+	padding:10px 0 0 0;
+	}
+ul.headLinks li{
+	text-align:right;
+	float:right;
+	padding:0 0 0 10px;
+	}
+ul.headLinks li a{
+	float:left;
+	font-size:12px;
+	text-align:right;
+	}
+ul.headLinks li a.profile{
+	width:16px;
+	height:16px;
+	}
+ul.headLinks li a.feedback{
+	width:16px;
+	height:16px;
+	}
+ul.headLinks li a.help{
+	width:16px;
+	height:16px;
+	}
+ul.headLinks li span{
+	font-weight:bold;
+	}
+ul.headLinks li label{
+	font-weight:normal;
+	}
+	
+	
+/*-------------------- HTML Tag properties for the Menu --------------------------*/
+.menuContent{
+	width:100%;
+	float:left;
+	height:32px;
+	margin:0 0 5px 0; 
+	
+	opacity:0.4;
+	filter:alpha(opacity=40);
+	position:relative;
+	z-index:-1;
+	}
+.menuContent span.menuLeft{
+	float:left;
+	height:32px;
+	width:5px; 
+	}
+.menuContent span.menuRight{
+	float:right;
+	height:32px;
+	width:15px;
+	}
+ul.menuAction{
+	width:95%;
+	float:left; 
+	
+	position:absolute;
+	left:10px;
+	z-index:0;
+	}
+ul.menuAction li{
+	float:left;
+	width:100%;
+	height:28px;
+	padding:4px 0 0 0;
+	cursor:pointer;
+	}
+ul.menuAction li a{
+	float:left;
+	font-size:12px;
+	font-weight:bold;
+	padding:0 0 0 4px;
+	margin:0 2px 0 0;
+	height:23px;
+	}
+ul.menuAction li a span{
+	float:left;
+	font-size:12px;
+	font-weight:bold;
+	padding:3px 14px 0 10px;
+	height:20px;
+	cursor:pointer;
+	}
+ul.menuAction li a.linkRight{
+	float:right;
+	}
+ul.menuAction li a:hover span{
+	font-size:12px;
+	}
+ul.menuAction li a.current span{
+	font-size:12px;
+	}
+	
+/*------------------- HTML Tag properties for Inner Page Heading ---------------------*/
+.pageHead{
+	float:left;
+	width:100%;
+	height:33px;
+	margin:0 0 5px 0;
+	}
+.pageHead span.topLeft{
+	float:left;
+	width:5px;
+	height:33px;
+	}
+.pageHead span.topRight{
+	float:right;
+	width:5px;
+	height:33px;
+	}
+.pageHead label{
+	float:left;
+	font-size:16px;
+	height:25px;
+	padding:8px 0 0 0;
+	margin:0 0 5px 0;
+	font-weight:bold;
+	}
+.pageHead a{
+	float:right;
+	width:76px;
+	height:21px;
+	text-align:center;
+	padding:6px 0 0 0;
+	margin:0;
+	}
+.pageHead a img{
+	vertical-align:bottom;
+	}	
+.pageHead div.dtwo{
+	float:right;
+	width:50%;
+	padding:5px 0 0 0;
+	}	
+.pageHead div.dtwo select{
+	float:right;
+	font-weight:bold;
+	}
+	
+/*-------------------- HTML Tag properties for the Content ----------------------*/
+#iContent{
+	width:100%;
+	min-height:450px;
+	text-align:left;
+	float:left; 
+	display:block;
+	z-index:0;
+	position:relative;
+	}
+	
+	/*---- HTML Tag properties for the Content Blocks in Absolute----*/
+.columnLeft{	
+	width:25%;	
+	z-index:1;
+	float:left;
+	position:absolute;
+	bottom:0;
+	left:0;
+	height:100%;
+	}
+.columnRight{	
+	width:74.5%;	
+	z-index:1;
+	float:right;
+	position:absolute;
+	bottom:0;
+	right:0;
+	height:100%;
+	}
+
+	/*---- HTML Tag properties for the Columns Used ----*/
+.columnAll{
+	float:left;
+	width:100%;
+	min-height:450px;	
+	clear:both;
+	z-index:2;	
+	position:relative;
+	padding:0 0 5px 0;
+	}
+.columnAllLeft{
+	float:left;
+	width:25%;
+	min-height:450px;
+	clear:left;	
+	z-index:2;
+	position:relative;
+	padding:0 0 5px 0;
+	}
+.columnAllRight{
+	float:right;
+	width:74.5%;
+	min-height:450px;
+	clear:right;	
+	z-index:2;
+	position:relative;
+	padding:0 0 5px 0;
+	}
+
+/*---- HTML Tag properties for the Layout Modification Changes ----*/
+.columnAllRight .fieldGroup{
+	width:97%;
+	}
+.columnAllRight	.fieldBlockL, .columnAllRight .fieldBlockR{
+	width:48%;
+	}
+.columnAllLeft h3 label{
+	width:80%;
+	}
+	
+	/*---- HTML Tag properties for the Content Data ----*/
+.infoBlock{
+	float:left;
+	width:100%;
+	height:auto;
+	padding:5px 0;
+	}
+.infoLeft{
+	float:left;
+	width:20%;
+	padding:5px 0;
+	text-align:left;
+	font-weight:normal;	
+	}
+.infoRight{
+	float:left;
+	width:80%;
+	padding:5px 0;
+	text-align:left;
+	}
+
+.outerBlock{
+	float:left;
+	width:99%;
+	height:auto;
+	margin:0;	
+	padding:5px;
+	clear:both;
+	display:block;
+	}
+	
+.searchBlock{
+	margin:0 auto;
+	width:96%;
+	display:block;
+	padding:5px;
+	text-align:left;
+	font-weight:normal;	
+	}
+.searchBlock label{
+	float:left;
+	padding:2px 0 2px 15px;
+	}
+.searchBlock ul{
+	float:left;
+	}
+	
+.fieldGroup{
+	margin:0 auto;
+	width:98%;
+	display:table;
+	padding:0;
+	text-align:left;
+	font-weight:normal;	
+	}
+.fieldBlockL{
+	float:left;
+	width:48.5%;
+	font-size:12px;	
+	padding:5px;
+	margin:0 0 5px 0;
+	clear:left;
+	}
+.fieldBlockR{
+	float:right;
+	width:48.5%;
+	font-size:12px;	
+	padding:5px;
+	margin:0 0 5px 0;
+	clear:right;
+	}
+.fieldBlockC{
+	float:left;
+	width:98.4%;
+	font-size:12px;	
+	padding:5px;
+	margin:0 0 5px 0;
+	}
+.fieldGroup legend{
+	font-weight:bold;
+	font-size:13px;
+	}
+.fieldBlockR .events{
+	float:left;
+	}
+.fieldBlockR .events table.tStatus{
+	table-layout:fixed;
+	}
+.fieldBlockR .events table.tStatus td{
+	overflow:hidden;
+	}
+		
+.editLeft{
+	float:left;
+	width:42%;
+	padding:5px 5px 5px 0;
+	text-align:right;
+	font-weight:bold;
+	position:relative;
+	}
+.editRight{
+	float:left;
+	width:55%;
+	padding:5px 0 5px 5px;
+	text-align:left;
+	min-height:18px;
+	position:relative;
+	overflow:hidden;
+	}
+.editLeft label{
+	font-weight:bold;
+	float:right;
+	}
+.editLeft span{
+	float:right;
+	width:12px;
+	height:12px;
+	}
+.editLeft b{
+	float:right;
+	padding:0 3px 0 0;
+	}
+.editRight input, .editRight select, .editRight textarea{
+	float:left;
+	}
+.editRight a{
+	text-decoration:underline;
+	}
+ul.yesNo{
+	float:left;
+	clear:both;
+	display:block;
+	}
+ul.yesNo li{
+	display:block;
+	clear:both;
+	}
+ul.yesNo li input{
+	float:left;
+	padding:0;
+	margin:0
+	}
+ul.yesNo li label{
+	float:left;
+	margin:0;
+	padding:0 0 0 5px;
+	}
+ul.yesNo li label b{
+	float:left;
+	}
+.editRight .pricing{
+	float:left;
+	display:block;
+	clear:both;
+	}
+.editRight .pricing label{
+	float:left;
+	padding:0 3px;
+	}
+.editRight .pricing input{
+	float:left;
+	}
+
+/*------------------- HTML Tag properties for Collapsible Left Pane -------------------*/
+.toggle{
+	width:100%;
+	float:left;	
+	}
+.collapseHead{
+	float:left;
+	width:100%;
+	height:25px;
+	}
+.collapseHeadData{
+	float:left;
+	padding:5px 0 0 0;
+	}
+.collapseHeadData label{
+	float:left;	
+	font-weight:normal;
+	}
+.collapseHeadData span{
+	float:left;	
+	font-weight:normal;
+	padding:0 5px 0 5px;
+	}
+.collapseHeadData a, .collapseHeadData a:hover, .collapseHeadData a:active{
+	float:left;
+	padding:0 5px;
+	width:15px;
+	height:15px;
+	}
+ul.collapse{
+	float:left;
+	width:100%;
+	clear:both;
+	}	
+ul.collapse li{
+	text-align:left;
+	width:90%;
+	padding:0 0 3px 20px;
+	}
+.userBlock{
+	float:left;
+	padding:5px;
+	min-height:300px;
+	}
+.userList{
+	float:left;
+	}
+	
+/*-------------------- HTML Tag properties for Status table ----------------------*/
+table.tStatus{
+	float:left;
+	width:100%;
+	font-size:12px;
+	}
+table.tStatus td{
+	padding:3px;
+	text-align:left;
+	overflow:hidden;
+	}
+table.tStatus th{
+	padding:3px;
+	text-align:left;
+	overflow:hidden;
+	font-weight:bold;
+	}
+table.tStatus tr:hover td{
+	overflow:hidden;
+	}
+table.tStatus tr:hover td.blank{
+	height:10px;
+	}
+table.tStatus th.title{
+	overflow:hidden;
+	}
+table.tStatus th.title span{
+	float:left;
+	}
+table.tStatus th.checkBox{
+	width:3%;	
+	}
+table.tStatus th.tbutton{
+	padding:2px 2px 0 2px;
+	}
+table.tStatus th.tbutton span{
+	float:left;
+	}
+
+	
+/*--------------------- HTML Tag properties for Pagination --------------------*/
+.tableBlock{
+	float:right;
+	width:49%;
+	text-align:right;
+	}
+.tableBlockRight{
+	float:right;
+	width:40%;
+	text-align:right; 
+	}
+.tableBlockLeft{
+	float:left;
+	width:49%;
+	text-align:left; 
+	}
+ul.pagination{
+	float:right;
+	width:90%;
+	}	
+ul.pagination li{
+	float:right;
+	padding:2px 0 0 0; 
+	width:auto;
+	}
+ul.pagination li a{
+	float:left;
+	width:25px;
+	height:21px;
+	padding:0 0 0 5px;
+	}
+ul.pagination li a.first{
+	margin:0;
+	}	
+ul.pagination li a.last{
+	margin:0;
+	}
+ul.pagination li a.previous{
+	margin:0;
+	}
+ul.pagination li a.next{
+	margin:0;
+	}
+ul.pagination li.links{
+	float:right;
+	padding:2px 5px;
+	width:24%;
+	text-align:center;
+	}
+ul.pagination li.links input{
+	width:20%;
+	margin:0 3px;
+	padding:0;
+	}
+ul.pagination li.links label{
+	float:left;
+	padding:3px 0 0 0;
+	}
+ul.pagination li.display{
+	float:right;
+	padding:2px 5px;
+	width:55%;
+	text-align:center; 
+	}
+ul.pagination li.display select{
+	width:15%;
+	margin:0 3px;
+	}
+ul.pagination li.display label{
+	float:left;
+	padding:3px 0 0 0;
+	}
+
+.tableBlock ul.button{
+	float:right;
+	}
+.tableBlockLeft ul.pagination{
+	float:left;
+	}
+.tableBlockLeft ul.pagination li.display{
+	float:left;
+	}
+
+.horizontalrule{
+	margin:10px 0;
+	width:100%;
+	height:1px;
+	float:left;
+	display:block;
+	}
+	
+	
+/*-------------------- HTML Tag properties for Subheads  --------------------*/
+ul.subHead{
+	float:right;
+	}
+ul.subHead li{
+	float:left;
+	background:url(../images/cat_ct.png) left top repeat-x;
+	height:23px;
+	color:#fff;
+	padding:6px 0 0 0;
+	font-weight:bold;
+	font-size:12px;
+	width:768px;
+	}
+ul.subHead li.subLt{
+	background:url(../images/cat_lt.png) left top no-repeat;
+	width:5px;
+	}
+ul.subHead li.subRt{
+	background:url(../images/cat_rt.png) right top no-repeat;
+	width:5px;
+	}
+ul.subHead li.whlist{
+	width:970px;
+	}
+	
+ul.leftPane{
+	float:left;
+	}
+ul.leftPane li{
+	float:left;
+	background:url(../images/cat_ct.png) left top repeat-x;
+	height:23px;
+	color:#fff;
+	padding:6px 0 0 0;
+	font-weight:bold;
+	font-size:12px;
+	width:190px;
+	}
+ul.leftPane li.lpaneLt{
+	background:url(../images/cat_lt.png) left top no-repeat;
+	width:5px;
+	}
+ul.leftPane li.lpaneRt{
+	background:url(../images/cat_rt.png) right top no-repeat;
+	width:5px;
+	}
+
+
+/*----------------- HTML Tag properties for Buttons --------------------------*/
+ul.button{	
+	margin:0;
+	padding:0;
+	}
+ul.button li{
+	float:left;
+	height:19px;
+	text-align:center;
+	padding:3px 3px 0 3px;
+	cursor:pointer;
+	font-weight:bold;
+	font-size:11px;
+	}
+ul.button li.btnLt{
+	width:5px;
+	padding:3px 0 0 0;
+	}
+ul.button li.btnRt{
+	width:5px;
+	padding:3px 0 0 0;
+	}
+ul.button li a{
+	font-weight:bold;
+	cursor:pointer;
+	font-size:11px;
+	}
+ul.button li input{
+	font-weight:bold;
+	cursor:pointer;
+	font-size:11px;
+	}
+	
+.buttonContent, .buttonList{
+	margin:5px auto;
+	width:100%;
+	display:block;
+	float:left;
+	clear:both;
+	}
+	
+.buttonL, .buttonR{
+	display:block;
+	padding:2px 0;
+	}
+.buttonL{
+	width:55%;
+	float:left;
+	}
+.buttonR{
+	width:42%;
+	float:right;
+	}
+.buttonF{
+	float:left;
+	width:90%;
+	display:block;
+	padding:2px 0;
+	}	
+.buttonF ul.button{
+	float:left;
+	margin:0 0 0 5px;
+	}
+.buttonL ul.button{
+	float:left;
+	margin:0 0 0 5px;
+	}
+.buttonR ul.button{
+	float:right;
+	margin:0 5px 0 0;
+	}
+.buttonList{
+	padding:2px 0;
+	}		
+.buttonList ul.button{
+	float:left;
+	margin:0 0 0 5px;
+	}
+.innerBtn{
+	width:42px;
+	height:21px;
+	float:left;
+	margin:2px 1px 0 1px;
+	padding:0;
+	font-size:11px;
+	text-align:center;
+	font-weight:bold;
+	}
+.buttonL .evntSel{
+	float:left;
+	padding:3px 0 0 5px;
+	}
+	
+	/*---- HTML Tag properties for text fields -----*/
+
+.textfield, .textfield10, .textfield15, .textfield20, .textfield30, .textfield35, .textfield40, .textfield50, .textfield60, .textfield70, .textfield80, .textfield90{
+	padding:2px;
+	height:14px;
+	float:left;
+	margin:0 1px;
+	}
+	
+.textfield{
+	width:auto;
+	}
+.textfield10{
+	width:30px;
+	}
+.textfield15{
+	width:15%;
+	}
+.textfield20{
+	width:20%;
+	}
+.textfield30{
+	width:30%;
+	}
+.textfield35{
+	width:35%;
+	}
+.textfield40{
+	width:40%;
+	}
+.textfield50{
+	width:50%;
+	}
+.textfield60{
+	width:60%;
+	}
+.textfield70{
+	width:70%;
+	}
+.textfield80{
+	width:80%;
+	}
+.textfield90{
+	width:90%;
+	}
+
+	/*---- HTML Tag properties for combo fields -----*/
+.combofield, .combofield20, .combofield30, .combofield40, .combofield50, .combofield60, .combofield70, .combofield80, .combofield100{
+	padding:0;
+	height:20px;
+	float:left;
+	margin:0 1px;
+	}
+.combofield{
+	width:auto;
+	}
+.combofield20{
+	width:20%;
+	}
+.combofield30{
+	width:30%;
+	}
+.combofield40{
+	width:40%;
+	}
+.combofield50{
+	width:50%;
+	}
+.combofield60{
+	width:60%;
+	}
+.combofield70{
+	width:70%;
+	}
+.combofield80{
+	width:80%;
+	}
+.combofield100{
+	width:100px;
+	}
+	
+	/*---- HTML Tag properties for multiple fields -----*/
+.multiplefield{
+	padding:2px;
+	height:60px;
+	}
+.multiplefield{
+	width:60%;
+	}
+.multipleuser{
+	padding:0;
+	}
+
+	/*---- HTML Tag properties for text area -----*/
+.textarea, .textarea95{
+	padding:0;
+	height:50px;
+	}
+.textarea{
+	width:90%;
+	}
+.textarea95{
+	width:95%;
+	}
+	
+	/*---- HTML Tag properties for table filter field -----*/
+.filtertext{
+	padding:2px;
+	float:right;
+	margin:0 1px;
+	}
+.filterfield{
+	padding:0;
+	float:right;
+	margin:0 1px;
+	}
+.filterfield, .filtertext{
+	width:30%;
+	}
+.filtertext{
+	height:14px;
+	}
+.filterfield{
+	height:20px;
+	}
+
+	/*---- HTML Tag properties for datepicker field -----*/
+.datefield{
+	padding:2px;
+	height:14px;
+	float:left;
+	margin:0 1px;
+	cursor:pointer;
+	}
+.datefield{
+	width:45%;
+	}
+.timefield{
+	padding:0;
+	margin:0 3px 0 0;
+	height:20px;
+	width:45px
+	}
+
+/*------------------------------- HTML Tag properties for the Warning Messages -------------------------------*/
+.errors {
+	display:block;
+	font-weight:normal;
+	font-size:11px;
+	clear:both;
+	float:left;
+	margin:0;
+	padding:0;
+	width:100%;
+	}	
+.Warning{
+	float:left;
+	padding:0;
+	margin:0 0 2px 0;
+	width:100%;
+	}
+.offerWarning{
+	width:95%;
+	float:right;
+	padding:5px 10px 15px 30px;
+	margin:0;
+	}
+.offerWarning img{
+	float:left;
+	width:24px;
+	height:24px;
+	}
+.offerWarning label{
+	float:left;
+	padding:8px 0 0 8px;
+	font-weight:bold;
+	}
+.infomessage{	
+	font-size:18px;
+	padding: 5px 10px;	
+	}
+.alertBox{
+	float:left;
+	padding:8px 0 10px 10px;
+	display:block;
+	clear:both;
+	}
+.alertBox img{
+	float:left;
+	width:32px;
+	height:32px;
+	margin:0 10px 0 0;
+	}
+.alertBox .alertMes{
+	float:left;
+	padding:6px 0 0 0;
+	}
+.popupContent.alert{
+	height:auto;
+	}
+.wholeBlock.hauto{
+	height:auto;
+	}
+.securityWarn{
+	width:160%;
+	display:block;
+	font-weight:bold;
+	}
+
+/*------------------------ HTML Tag properties for the Popup Pages ---------------------*/
+.popupContainer{
+	position:fixed;
+	top:0;
+	bottom:0;
+	right:0;
+	left:0;
+	background:#000;
+	opacity:0.6;
+	filter:alpha(opacity=60);
+	-moz-opacity: 0.6;	
+	display:none;	
+	z-index:5; 
+	}
+#popupBlock, #rateCB, #recurrancePopupBlock, #outerBlock, #demoGraphicHidden, #gazeHidden{
+	display:none;	
+	}	
+#demoGraphic, #demoGraphicVisible, #gazeVisible{
+	display:block;	
+	}
+.popupBlock{
+	width:100%;
+	height:100%;
+	position:fixed;
+	top:0;
+	bottom:0;
+	right:0;
+	left:0;
+	z-index:6;
+	}		
+.popupContent{
+	width:60%;
+	height:250px;
+	margin:10% 0 10% 20%;
+	display:table;
+	padding:5px;
+	position:absolute;	
+	z-index:7;
+	}
+.slideBar{
+	float:left;
+	cursor:move;
+	width:100%;
+	clear:both;
+	display:block;
+	}
+.slideBar h3{
+	float:left;
+	width:100%;
+	}
+.slideBar h3 label{
+	float:left;
+	}
+.slideBar h3 span{
+	float:right;
+	cursor:pointer;
+	font-weight:bold;
+	font-size:16px;
+	padding:3px 5px 0 0;
+	}	
+.wholeBlock{
+	float:left;
+	width:100%;
+	height:250px;
+	overflow-x:hidden;	
+	overflow-y:auto;	
+	}
+.editBlock{
+	float:left;
+	width:100%;
+	font-size:12px;	
+	}
+.editBlock .fieldGroup{
+	width:100%;
+	padding:5px 0 0 0;
+	}
+.editBlock .fieldBlockL, .editBlock .fieldBlockR{
+	width:48%;
+	}
+.editBlock .fieldBlockL .editLeft, .editBlock .fieldBlockR .editLeft{
+	width:40%;
+	}		
+.recurrLeft{
+	width:15%;
+	float:left;	
+	padding:10px 0;
+	}
+.recurrRight{
+	margin:0;
+	width:75%;
+	float:left;	
+	padding:0 10px 10px 10px;
+	}
+.rLeft{
+	text-align:left;
+	float:left;	
+	margin:0;
+	padding:0 5px 0 0;
+	}
+.rLeft input{
+	float:left;	
+	padding:1px 2px 1px 0;
+	}
+.rLeftC{
+	text-align:left;
+	float:left;	
+	margin:0;
+	padding:0 5px 0 0;
+	}
+.rLeftC span input{
+	float:left;	
+	padding:1px 0 1px 0;
+	}
+.rLeftC span label{
+	float:left;	
+	padding:0 8px 0 2px;
+	}
+.rRow{
+	float:left;	
+	width:85%;
+	margin:0;
+	padding:5px 0 0 0;
+	}	
+	
+
+/*------------------- HTML Tag properties for Message Area -------------------*/
+.messagearea{
+	height:40px; 
+	width:100%;
+	display:none;	
+	margin:0 0 5px 0;
+	}
+.messagearea h2{
+	height:32px; 
+	width:32px;
+	margin:0 0 0 10px;
+	padding:5px 10px 5px 5px;
+	float:left;
+	}
+.msgText {
+	font-weight:bold;
+	height:40px; 
+	text-align:left;
+	padding-top:10px;
+	}
+.msgText label{
+	font-weight:bold;
+	}
+	
+/*------------------- HTML Tag properties for Report Action Heading ---------------------*/
+.reportAction{
+	width:100%;
+	padding:0;
+	margin:5px 0;
+	float:left;
+	display:block;
+	height:31px;
+	}
+.reportAction span.reportLeft{
+	float:left;
+	width:5px;
+	height:31px;
+	}
+.reportAction span.reportRight{
+	float:right;
+	width:5px;
+	height:31px;
+	}	
+.reportAction a{
+	float:left;
+	width:76px;
+	height:21px;
+	text-align:center;
+	padding:6px 0 0 0;
+	margin:2px 0 0 0;
+	}
+.reportAction a img{
+	vertical-align:bottom;
+	}
+
+/*-------------- HTML Tag properties for the Reports Content Part  ----------------*/
+.dAvailField{
+	float:left;
+	margin:0 0 5px 0;
+	padding:5px;
+	width:99%;
+	}
+.reportGroup{
+	margin:0 auto;
+	width:99%;
+	display:table;
+	padding:5px 5px 0 5px;
+	text-align:left;
+	font-weight:normal;	
+	}
+.reportOffGroup{
+	margin:0 auto;
+	width:99%;
+	display:table;
+	padding:0 5px 5px 5px;
+	}
+.reportR{
+	float:right;
+	width:50%;
+	font-size:12px;	
+	padding:0;
+	margin:0 0 5px 0;
+	}		
+.reportBlock{
+	float:left;
+	width:100%;
+	font-size:12px;
+	margin:0;
+	}
+.reportBlock .editLeft{
+	width:42%;
+	}
+.reportBlock .editRight{
+	width:55%;
+	}
+.reportDataHead{
+	float:left;
+	width:100%;
+	height:25px;
+	}
+.reportDataHead label{
+	float:left;	
+	padding:4px 0 0 5px;
+	font-weight:bold;
+	}
+.reportDataHead span{
+	font-weight:bold;
+	float:left;	
+	padding:4px 0 0 5px;
+	}
+.reportDataHead a, .reportDataHead a:hover, .reportDataHead a:active{
+	float:right;
+	padding:7px 5px 0 0;
+	width:13px;
+	height:12px;
+	font-size:16px;
+	}
+.reportDataHead a img{
+	float:right;
+	}
+.reportGroup legend{
+	font-weight:bold;
+	font-size:13px;
+	}
+	
+	/*------------------- HTML Tag properties for the grid table -------------------*/
+.pagingArea{background:#D3E1F1;}
+	
+	/*------------------- HTML Tag properties for the Footer -------------------*/
+#iFooter{
+	width:100%;
+	height:40px;
+	clear:both;
+	float:left;
+	dislay:block;
+	}
+#iFooter span{
+	float:left;
+	font-size:11px;
+	padding:8px 0 30px 0;
+	}
+#iFooter a{
+	float:right;
+	font-size:11px;
+	padding:8px 0 15px 0;
+	margin:0 0 0 5px;
+	}
+#iFooter label{
+	float:right;
+	width:31px;
+	height:17px;
+	}
+	
+	/*------------------- HTML Tag properties for the Container Inner tabs -------------------*/
+.ui-tabBlock{
+	float:left;
+	padding:5px 0;
+	width:100%;
+	height:auto;
+	}
+.tabs{
+	float:left;
+	clear:both;
+	display:block;
+	}
+.ui-tabs {
+	float: left;
+	font-size:12px;
+	}
+.ui-tabs li {
+	display: inline;
+	float: left;
+	text-decoration: none;
+	margin:0 5px 0 0;
+	padding:0;
+	font-size:12px;
+	list-style:none;
+	}
+.ui-tabs li a, .tabs li span {
+	display: block;
+	float: left;
+	height:20px;
+	padding:2px 10px 0 10px;
+	position: relative;
+	text-decoration: none;
+	}
+.ui-tabs li a:hover, .ui-tabs li span:hover {
+	text-decoration: none;
+	}
+.ui-tabs li.current a, .ui-tabs li.current span {
+	font-weight: bold;
+	}
+.ie .ui-tabs li a, .ie .ui-tabs li span {
+	border-bottom:none !important;
+	}
+
+/*------------------- HTML Tag properties for the DHTML support ------------------------*/
+.leftTree{
+	width:270px; 
+	height:420px; 
+	overflow:auto; 
+	float:left;
+	}	
+.pagingArea .dhx_toolbar_base_dhx_skyblue div.float_left{
+	float:right;
+	}
+.treeBlock{			
+	width:25%;	
+	z-index:2;
+	float:left;
+	position:absolute;
+	bottom:0;
+	left:0;
+	top:0;
+	background:#fff;
+	padding:0 0 28px 0;			
+	}
+	
+/*------------------- HTML Tag properties for Liferay Support  ------------------------*/
+.controls-visible{
+	width:100%;
+	height:100%;
+	padding:0;
+	}	
+.columns-1{
+	}
+.portlet-layout{
+	width:100%;
+	height:100%;	
+	}
+.portlet-content-container{
+	}
+.portlet-body{
+	}
+.interactive-mode{
+	margin-right:300px;
+	}	
+.portlet-chat{
+	}	
+
+/*------------------- HTML Tag properties for PNG Fix in IE -------------------*/
+* html .png, 
+* html a, 
+* html img,
+* html input,
+* html h1, 
+* html label,  
+* html .menuContent span,  
+* html .reportDataHead a img, 
+* html .editLeft span, 
+* html ul.button li.btnLt, 
+* html ul.button li.btnRt,  
+* html ul.button:hover li.btnLt, 
+* html ul.button:hover li.btnRt,
+* html ul.menuAction li a:hover,
+* html ul.menuAction li a:hover span,
+* html ul.menuAction li a.current,
+* html ul.menuAction li a.current span,
+* html .reportAction span,
+* html .reportAction a, 
+* html .treeBlock table td .standartTreeImage img
+{
+azimuth: expression(
+  	this.pngSet?this.pngSet=true:(this.nodeName == "IMG" && this.src.toLowerCase().indexOf('.png')>-1?(this.runtimeStyle.backgroundImage = "none",
+	this.runtimeStyle.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='" + this.src + "', sizingMethod='image')",
+	this.src = "/style/images/transparent.gif"):(this.origBg = this.origBg? this.origBg :this.currentStyle.backgroundImage.toString().replace('url("','').replace('")',''),
+	this.runtimeStyle.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='" + this.origBg + "', sizingMethod='crop')",
+	this.runtimeStyle.backgroundImage = "none")),this.pngSet=true
+	);
+	}
+
+
+@media screen and (-webkit-min-device-pixel-ratio:0) { /* hacked for chrome and safari */
+body{
+	width:100%;
+	height:100%;
+	}
+}
+
+  
+/*------------------- HTML Tag properties for IE6/7 ------------------------*/
+h1 label{
+	_margin:15px 0 0 40px;
+	}
+h3 .filterBlock ul.button{
+	_width:45px;
+	}
+h3 .filterBlock ul.button li{
+	_width:25px;
+	}
+h3 .filterBlock ul.button li.btnLt{
+	_width:5px;
+	}
+h3 .filterBlock ul.button li.btnRt{
+	_width:5px;
+	}
+ul.menuAction{
+	_position:relative;
+	_margin-top:-37px;
+	}
+.buttonContent, .buttonList{
+	*margin:0 0 5px 0;
+	}
+.buttonContent ul.button li a, .buttonList ul.button li a{
+	_float:left;
+	*text-align:center;
+	}
+.buttonContent ul.button li input, .buttonList ul.button li input{
+	*margin:0;
+	*padding:0;
+	}
+.buttonList ul.button li input#submit{
+	*width:145px;
+	}
+.columnAll{
+	_height:450px;	
+	}
+.columnAllLeft{
+	_height:450px;
+	_width:24%;	
+	}
+.columnAllRight{
+	_height:450px;	
+	_width:74.5%;
+	_clear:none;	
+	}
+.treeBlock{			
+	_width:24%;	
+	_height:420px;	
+	_padding:0 0 28px 0;	
+	_clear:none;		
+	}
+.reportGroup legend{
+	_margin-left:-7px;
+	*margin-left:-7px;
+	}
+.fieldGroup legend{
+	_margin-left:-7px;
+	*margin-left:-7px;
+	}
+.popupContainer{
+	_position:absolute;
+	}	
+.popupBlock{
+	_position:absolute;
+	}		
+.popupContent{
+	_position:absolute;
+	_margin:1% 0 10% 0%;	
+	_left:0;
+	_width:600px;
+	*height:auto;
+	}
+.wholeBlock{
+	_height:auto;	
+	}
+	

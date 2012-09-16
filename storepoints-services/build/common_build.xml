@@ -152,7 +152,6 @@
         <delete file="demo.log"/>
         <delete dir="${build.var.dir}"/>
         <delete dir="${activemq.home}/var"/>
-        <delete dir="${build.dir}"/>
     </target>
 
 

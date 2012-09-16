@@ -19,7 +19,7 @@ public class GetAccountsServiceClientTest {
 		
 		for(AccountData account: accounts){
 
-			System.out.println("Accounts: getId:"+account.getAccountid());
+			System.out.println("Accounts: getId:"+account.getAccountId());
 			System.out.println("Accounts: getStoreName:"+account.getStoreName());
 			System.out.println("Accounts: storePoints:"+account.getStorePoint());
 		}

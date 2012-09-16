@@ -1,0 +1,48 @@
+@charset "utf-8";
+/**
+  * 
+  CSS Document for StorePoints
+  *@author StorePoints Inc.
+  *
+  */
+  
+/*------------------- HTML Tag properties for IE6/7 ------------------------*/
+h1 label{
+	-margin:20px 0 0 40px;
+	_margin:20px 0 0 40px;
+	}
+h3 .filterBlock ul.button{
+	_width:45px;
+	}
+h3 .filterBlock ul.button li{
+	_width:25px;
+	}
+h3 .filterBlock ul.button li.btnLt{
+	_width:5px;
+	}
+h3 .filterBlock ul.button li.btnRt{
+	_width:5px;
+	}
+.buttonList{
+	_margin-top:0;
+	-margin-top:0;
+	}
+ul.button li a{
+	_float:left;
+	_text-align:center;
+	}
+ul.button li input{
+	_margin:0;
+	_padding:0;
+	}
+.columnAll{
+	_height:450px;	
+	}
+.columnAllLeft{
+	_height:450px;	
+	}
+.columnAllRight{
+	_height:450px;	
+	}
+
+

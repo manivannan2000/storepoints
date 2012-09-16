@@ -1,0 +1,47 @@
+#set($has_depth=false)
+
+#if ($recurse_nav_depth == 2)
+      <tr>
+        <td style="height:1px;line-height:1px;" colspan="$cnt" nowrap="yes"><span style="font-size:1px;">&nbsp;</span></td>
+      </tr>
+    </tbody>
+  </table>
+#end
+
+#if ($recurse_nav_depth > 2)
+  <div style="border-top:1px solid #8499a2;font-size:1px;height:1px;line-height:1px;margin-left:8px;margin-right:8px;">&nbsp;</div>
+#end
+
+  <div>
+    #foreach ($nav_item in $recurse_nav)
+      <div class="cuesPrimaryTabCaption" style="display:inline;padding-top:5px;padding-bottom:5px;margin:0;white-space:nowrap;line-height:21px;">
+        <a $nav_item.getTarget() class="cuesPrimaryTabLink"
+          #if ($nav_item.isSelected() ||
+               $nav_item.isChildSelected())
+            #set($has_depth=true)
+            #set($walk_item=$nav_item)
+            style="font-weight:bold;color:#005d84 !important;"
+          #else
+            style="font-weight:normal;color:#0088c2 !important;"
+          #end
+          href="$nav_item.getURL()">
+          <span>
+            $nav_item.getName()
+          </span>
+        </a>
+      </div>
+    #end
+  </div>
+
+#if ($has_depth)
+  #set($recurse_nav=$walk_item.getChildren())
+  #set($childcnt=0)
+  #foreach ($nav_item in $recurse_nav)
+    #set($childcnt=$childcnt+1)
+  #end
+  #if($childcnt > 0)
+    #set($recurse_nav_depth=$recurse_nav_depth+1)
+    #parse ("$full_templates_path/recurse_navigation.vm")
+  #end
+#end
+

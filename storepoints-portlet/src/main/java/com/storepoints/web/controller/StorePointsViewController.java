@@ -29,6 +29,7 @@ import org.springframework.web.portlet.bind.PortletRequestDataBinder;
 
 import com.storepoints.service.StorePointsService;
 import com.storepoints.service.client.GetAccountsServiceClient;
+import com.storepoints.service.client.GetStoresServiceClient;
 import com.storepoints.web.dto.GetUserContact;
 
 import javax.servlet.http.Cookie;
@@ -91,6 +92,34 @@ public class StorePointsViewController {
 		
 		return "storepoints/getusercontact";
 	}
+	
+	/** TO BE REMOVED --START **/	
+	/** For the Action phase */
+	@RequestMapping(params = "action=listStores")
+	public void listStores(
+			ActionRequest request,
+			ActionResponse response,
+			BindingResult result, Model model) {
+		
+		response.setRenderParameter("action", "listStores");
+	}
+	
+	@RequestMapping(params = "action=listStores")
+	public String listStores(Model model,
+			RenderRequest renderRequest,
+			RenderResponse renderResponse) {
+		
+		GetStoresServiceClient getStoresServiceClient = new GetStoresServiceClient();
+		
+		getStoresServiceClient.makeServiceCall();
+		
+		model.addAttribute("storepointsstores",getStoresServiceClient.getStores() );
+
+		return "storepoints/admin/listStores";
+
+	}
+
+	/** TO BE REMOVED -- END **/	
 	
 	
 	/** For the Action phase */

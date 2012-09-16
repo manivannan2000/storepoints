@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/amplify/!svn/ver/2/CISCOADX/SourceCode/ADX3/tags/1.0.0.11/adx-theme/WebContent/templates
+END
+navigation.vm
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/amplify/!svn/ver/2/CISCOADX/SourceCode/ADX3/tags/1.0.0.11/adx-theme/WebContent/templates/navigation.vm
+END
+recurse_navigation.vm
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/amplify/!svn/ver/2/CISCOADX/SourceCode/ADX3/tags/1.0.0.11/adx-theme/WebContent/templates/recurse_navigation.vm
+END
+dock.vm
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/amplify/!svn/ver/2/CISCOADX/SourceCode/ADX3/tags/1.0.0.11/adx-theme/WebContent/templates/dock.vm
+END
+init_custom.vm
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/amplify/!svn/ver/2/CISCOADX/SourceCode/ADX3/tags/1.0.0.11/adx-theme/WebContent/templates/init_custom.vm
+END
+portal_pop_up.vm
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/amplify/!svn/ver/2/CISCOADX/SourceCode/ADX3/tags/1.0.0.11/adx-theme/WebContent/templates/portal_pop_up.vm
+END
+portal_normal.vm
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/amplify/!svn/ver/2/CISCOADX/SourceCode/ADX3/tags/1.0.0.11/adx-theme/WebContent/templates/portal_normal.vm
+END
+portlet.vm
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/amplify/!svn/ver/2/CISCOADX/SourceCode/ADX3/tags/1.0.0.11/adx-theme/WebContent/templates/portlet.vm
+END

@@ -1,0 +1,323 @@
+@charset "utf-8";
+/**
+  * 
+  CSS Document for StorePoints  
+  *@author StorePoints Inc.
+  *
+  */
+@media print { 
+
+body, html, form{
+	margin:0;
+	padding:0;
+	}
+body{
+	width:100%;
+	height:100%;
+	text-align:center;	
+	}
+a, em, span, ul, li, ol, p, img, div, table, form, fieldset, legend, dl, dt, dd, input, textarea, select, * {
+	margin:0;
+	padding:0;
+	font-style:normal;
+	font-weight:normal;
+	}
+h1, h2, h3, h4, h5, h6{
+	margin:0;
+	padding:0;
+	font-weight:normal;
+	}
+input, textarea, select, a{
+	font-size:12px;
+	}
+br{
+	clear:both;
+	display:block;
+	}
+	
+#Print, img{ 
+	display:none;
+	}
+	
+	/*------------------- HTML Tag properties for the General page breaks -------------------*/	
+.pagebreakAfter{
+	display:block;
+	page-break-after:always;
+	height:5px;
+	width:100%;
+	}
+.pagebreakBefore{
+	display:block;
+	page-break-before:always;
+	height:5px;
+	width:100%;
+	}
+.chat-bar{
+	display:none;
+	}
+.portlet-chat{
+	display:none;
+	}
+	
+	/*-------------------- HTML Tag properties for the Header Links --------------------------*/
+ul.headLinks{
+	display:none;
+	}
+ul.headLinks li{
+	display:none;
+	}
+ul.headLinks li a{
+	display:none;
+	}
+ul.headLinks li a.profile{
+	display:none;
+	}
+ul.headLinks li a.feedback{
+	display:none;
+	}
+ul.headLinks li a.help{
+	display:none;
+	}
+ul.headLinks li span{
+	display:none;
+	}
+ul.headLinks li label{
+	display:none;
+	}
+
+/*-------------------- HTML Tag properties for the Menu --------------------------*/
+.menuContent{
+	display:none;
+	}
+.menuContent span.menuLeft{
+	display:none;
+	}
+.menuContent span.menuRight{
+	display:none;
+	}
+ul.menuAction{
+	display:none;
+	}
+ul.menuAction li{
+	display:none;
+	}
+ul.menuAction li a{
+	display:none;
+	}
+ul.menuAction li a span{
+	display:none;
+	}
+ul.menuAction li a.linkRight{
+	display:none;
+	}
+ul.menuAction li a:hover span{
+	display:none;
+	}
+ul.menuAction li a.current span{
+	display:none;
+	}
+	
+/*------------------- HTML Tag properties for Layout ---------------------*/
+#iHeader{
+	float:none;
+	}
+#iContent{
+	float:none;
+	}
+	
+/*------------------- HTML Tag properties for Headings ---------------------*/
+#iHeader .logoShow {
+	width:100%;
+	float:left;
+	}
+#iHeader .logoShow img{
+	float:left;
+	display:block;
+	float:left; 
+	width:74px;
+	height:26px;
+	}
+h1{
+	width:auto;
+	float:left;
+	}
+h1 label{
+	font-size:24px;
+	float:left;
+	margin:20px 0 0 80px;
+	display:block; 
+	}
+h3{	
+	width:100%;
+	height:25px;
+	clear:both;
+	display:block;
+	font-size:14px;
+	}
+h3 label{
+	float:left;
+	font-size:14px;
+	font-weight:bold;
+	width:40%;
+	}
+h3 span{
+	display:none;
+	}
+
+	/*------------------- HTML Tag properties for Content ---------------------*/
+.columnAll{
+	float:left;
+	width:100%;	
+	display:block;
+	}
+.fieldGroup{
+	margin:0 0 5px 0;
+	width:98%;
+	float:left;
+	display:block;
+	padding:1%;
+	text-align:left;
+	border:1px solid #eee;
+	}
+.fieldBlockL{
+	float:left;
+	width:100%;
+	font-size:12px;	
+	padding:5px;
+	margin:0;
+	}
+.fieldBlockR{
+	float:left;
+	width:100%;
+	font-size:12px;	
+	padding:5px;
+	margin:0;
+	}
+.fieldGroup legend{
+	font-weight:bold;
+	font-size:13px;
+	color:#bbb;
+	}
+	
+.editLeft{
+	float:left;
+	width:40%;
+	padding:2px 0;
+	text-align:left;
+	font-weight:bold;
+	}
+.editRight{
+	float:left;
+	width:58%;
+	padding:2px;
+	text-align:left;
+	}
+.editLeft span{
+	display:none;
+	}
+	
+/*-------------- HTML Tag properties for the Reports Content Part  ----------------*/
+.dAvailField{
+	float:left;
+	margin:0 0 5px 0;
+	padding:5px;
+	width:99%;
+	}
+.reportGroup{
+	float:left;
+	margin:0;
+	width:99%;
+	display:block;
+	padding:1%;
+	text-align:left;
+	font-weight:normal;	
+	border:1px solid #eee;
+	}
+.reportOffGroup{
+	float:left;
+	margin:0;
+	display:block;
+	padding:5px;
+	}
+.reportR{
+	float:left;
+	width:100%;
+	font-size:12px;	
+	padding:5px;
+	margin:0;
+	}		
+.reportBlock{
+	float:left;
+	font-size:12px;
+	margin:0;
+	display:block;
+	}
+.reportDataHead{
+	float:left;
+	width:100%;
+	height:25px;
+	}
+.reportDataHead label{
+	float:left;	
+	padding:5px;
+	font-weight:bold;
+	}
+.reportDataHead span{
+	font-weight:bold;
+	float:left;	
+	padding:5px;
+	}
+.reportDataHead a, .reportDataHead a:hover, .reportDataHead a:active{
+	display:none;
+	}
+.reportDataHead a img{
+	display:none;
+	}
+.reportGroup legend{
+	font-weight:bold;
+	font-size:13px;
+	color:#bbb;
+	}
+	
+/*------------------- HTML Tag properties for Report Action Heading ---------------------*/
+.reportAction{
+	display:none;
+	}
+.reportAction span.reportLeft{
+	display:none;
+	}
+.reportAction span.reportRight{
+	display:none;
+	}	
+.reportAction a{
+	display:none;
+	}
+.reportAction a img{
+	display:none;
+	}
+
+
+	/*------------------- HTML Tag properties for the Footer -------------------*/	
+#iFooter{
+	width:100%;
+	height:40px;
+	clear:both;
+	float:none;
+	dislay:block;
+	border-top:1px solid #eeeeee;
+	}
+#iFooter span{
+	float:left;
+	font-size:11px;
+	color:#000;
+	margin:0 0 0 5px;
+	}
+#iFooter a{
+	display:none;
+	}
+#iFooter label{
+	display:none;
+	}
+
+} /* End of Print condition */
+

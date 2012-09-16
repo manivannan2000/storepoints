@@ -1,0 +1,261 @@
+#parse ($init)
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		
+  <head>
+    <title>StorePoints - $the_title</title>
+    $theme.include($top_head_include)
+ 
+ 	#js("$themeDisplay.getPathThemeRoot()/javascript/CastleBusyBox.js")
+ 	#js("$themeDisplay.getPathThemeRoot()/spcss/dhtmlx/grid/dhtmlxcommon.js")
+	#js("$themeDisplay.getPathThemeRoot()/spcss/dhtmlx/grid/dhtmlxgrid.js")
+	#js("$themeDisplay.getPathThemeRoot()/spcss/dhtmlx/grid/dhtmlxgrid_srnd.js")
+	#js("$themeDisplay.getPathThemeRoot()/spcss/dhtmlx/grid/dhtmlxgridcell.js")
+	#js("$themeDisplay.getPathThemeRoot()/spcss/dhtmlx/grid/dhtmlxgrid_excell_link.js")
+	#js("$themeDisplay.getPathThemeRoot()/spcss/dhtmlx/grid/dhtmlxgrid_pgn.js")
+	#js("$themeDisplay.getPathThemeRoot()/spcss/dhtmlx/toolbar/dhtmlxtoolbar.js")	
+	#js("$themeDisplay.getPathThemeRoot()/spcss/dhtmlx/grid/dhtmlxtreegrid.js")	
+	#js("$themeDisplay.getPathThemeRoot()/spcss/dhtmlx/grid/dhtmlxgrid_filter.js")
+	#js("$themeDisplay.getPathThemeRoot()/spcss/dhtmlx/grid/dhtmlxtreegrid_filter.js") 
+	#js("$themeDisplay.getPathThemeRoot()/spcss/dhtmlx/calendar/dhtmlxcalendar.js")	
+	#js("$themeDisplay.getPathThemeRoot()/spcss/dhtmlx/tree/dhtmlxtree.js")	
+	#js("$themeDisplay.getPathThemeRoot()/spcss/dhtmlx/grid/dhtmlxgrid_excell_dhxcalendar.js")
+	
+	#css("$themeDisplay.getPathThemeRoot()/spcss/dhtmlx/grid/skins/dhtmlxgrid.css")	
+	#css("$themeDisplay.getPathThemeRoot()/spcss/dhtmlx/grid/skins/dhtmlxgrid_dhx_blue.css")
+	#css("$themeDisplay.getPathThemeRoot()/spcss/dhtmlx/grid/skins/dhtmlxgrid_dhx_skyblue.css")
+	#css("$themeDisplay.getPathThemeRoot()/spcss/dhtmlx/toolbar/skins/dhtmlxtoolbar_dhx_skyblue.css")	
+	#css("$themeDisplay.getPathThemeRoot()/spcss/dhtmlx/grid/skins/dhtmlxgrid_dhx_black.css")
+	#css("$themeDisplay.getPathThemeRoot()/spcss/dhtmlx/grid/skins/dhtmlxgrid_dhx_web.css")
+	#css("$themeDisplay.getPathThemeRoot()/spcss/dhtmlx/calendar/dhtmlxcalendar.css")	
+	#css("$themeDisplay.getPathThemeRoot()/spcss/dhtmlx/tree/dhtmlxtree.css")
+	
+	<script>window.dhx_globalImgPath = "$themeDisplay.getPathThemeRoot()/spcss/calendar/imgs/";</script>
+    <script type="text/javascript">
+    	// <![CDATA
+          cuesKnownLocation = "$themeDisplay.getPathThemeRoot()/";
+          cuesUsage = "portal";
+ 
+    	  $page_javascript_1
+    	  $page_javascript_2
+    	  $page_javascript_3
+
+          var icuesPortlets = new Array();
+          var icuesPortalResizeTimer = null;
+          function icuesHandlePortalResize(action)
+          {
+            if(action==null)
+            {
+              if(icuesPortalResizeTimer!=null)clearTimeout(icuesPortalResizeTimer);
+              icuesPortalResizeTimer = setTimeout("icuesHandlePortalResize('resize')",200);
+            }
+            else
+            {
+              for(id in icuesPortlets)
+                icuesPortletMoved(id);
+            }
+          }
+          function icuesHookLayout()
+          {
+            try{Liferay.Layout.Columns._onCompleteCallback=icuesPortletMovedCallback;}catch(e){}
+          }
+          function icuesPortletMovedCallback(evt, ui)
+          {
+            var portlet = (ui.item || [false])[0];
+            if(portlet)
+            {
+              var id = "portlet-wrapper-"+Liferay.Util.getPortletId(portlet.id);
+              setTimeout("icuesPortletMoved('"+id+"')",100);
+            }
+          } 
+          function icuesPortletMoved(id)
+          {
+            try
+            {
+              var container = document.getElementById(id);
+              var h = container==null?0:container.offsetHeight;
+              var w = container==null?0:container.offsetWidth;
+
+              var id = id.replace(/-/g, '_');
+              window[id+"_callbackContentAreaResized"](h,w);
+
+              icuesPortlets[id] = true;
+            }catch(e){}
+          } 
+
+          Liferay.Portlet.addHTML = function(options){
+            var instance = this;
+
+            var portletBoundary = null;
+
+            var url = options.url;
+            var data = options.data;
+            var dataType = 'html';
+            var placeHolder = options.placeHolder;
+            var beforePortletLoaded = options.beforePortletLoaded;
+            var onComplete = options.onComplete;
+
+            if (data && data.dataType) 
+            {
+              dataType = data.dataType;
+            }
+
+            var addPortletReturn = function(html) 
+            {
+              var container = placeHolder.parentNode;
+
+              var portletBound = jQuery('<div></div>')[0];
+
+              portletBound.innerHTML = html;
+              
+
+              //LPM added to handle scripts within html before removed by Liferay/jQuery
+              var scripts = portletBound.getElementsByTagName("script");
+              if(scripts.length > 0)
+              {
+                var id = "portlet-wrapper-"+Liferay.Util.getPortletId(portletBound.firstChild.id);
+                id = id.replace(/-/g, '_');
+                html = icuesMakeCallbacksUnique(id, html);
+                if(html.indexOf("function "+id+"_") != -1)
+        	  portletBound.innerHTML = html;
+              }
+              //LPM 
+
+
+              portletBound = portletBound.firstChild;
+
+              var portletId = Liferay.Util.getPortletId(portletBound.id);
+
+              portletBound.portletId = portletId;
+
+              jQuery(placeHolder).hide().after(portletBound).remove();
+
+              instance.refreshLayout(portletBound);
+
+              Liferay.Util.addInputType(portletBound.id);
+
+              if (window.location.hash) {
+              	window.location.hash = "p_" + portletId;
+              }
+
+              portletBoundary = portletBound;
+
+              if (onComplete) {
+              	onComplete(portletBoundary, portletId);
+              }
+
+              var jContainer = jQuery(container);
+
+              if (jContainer.is('.empty')) {
+              	jContainer.removeClass('empty');
+              }
+
+              return portletId;
+            };
+
+            if (beforePortletLoaded) {
+            	beforePortletLoaded(placeHolder);
+            }
+
+            jQuery.ajax(
+            	{
+            		url: url,
+            		data: data,
+            		dataType: dataType,
+            		success: function(message) {
+            			if (dataType == 'html') {
+            				addPortletReturn(message);
+            			}
+            			else {
+            				if (message.refresh) {
+            					location.reload();
+            				}
+            				else {
+            					addPortletReturn(message.portletHTML);
+            				}
+            			}
+            		}
+            	}
+            );
+          };
+
+        // ]]>
+    </script>
+  </head>
+
+  <body id="body">
+
+ <div id="iContainer">  
+
+    $theme.include($top_messages_include)
+	#parse ("$full_templates_path/dock.vm")
+    
+        <div id="iHeader">
+			<div class="logoShow">
+				<img src="http://www.store-points.com/imagesN/LogoPrint.png" alt=" " />
+			</div>
+            <div class="headLink">
+            	<ul class="headLinks">                    
+                    <li><a href="#" class="feedback" title="Feedback"><!-- --></a></li>
+                    <li><a href="#" class="help" title="Help"><!-- --></a></li>
+                    <li><a href="/c/portal/logout">Logout</a></li>
+                    <li><label>Welcome, </label><span>$user_first_name</span></li>
+                </ul>
+                <div class="clear"><!-- --></div>
+            	<!--<strong>Aug 19, 10:00 am PST</strong>-->
+            </div>			
+		</div>
+		<div class="clear"><!-- --></div>
+        <div class="menuContent">
+        	<span class="menuLeft"><!-- --></span>
+            <!-- -->
+            <span class="menuRight"><!-- --></span>
+        </div>
+		<ul class="menuAction">				
+			<li>
+				#foreach ($nav_item in $nav_items)
+					#if ($nav_item.isSelected())
+						#set ($nav_item_class = "current")
+						<a href="$nav_item.getURL()" $nav_item.getTarget() class="$nav_item_class" > <span id="$nav_item.getName()" >$nav_item.getName()</span> </a>
+					#else
+						#set ($nav_item_class = "")
+						<a href="$nav_item.getURL()" $nav_item.getTarget() class="" > <span id="$nav_item.getName()" >$nav_item.getName()</span> </a>
+					#end												
+				#end
+				<!--<a href="#" id="profile"   title="My Profile" class="linkRight"><span>My Profile</span></a>-->
+			</li>
+		</ul>
+		<div class="clear"><!-- --></div>
+		
+		<div id="iContent">
+	
+	      #if ($selectable)
+	      	$theme.include($content_include)
+	      #else
+	      	$portletDisplay.recycle()
+
+	      	$portletDisplay.setTitle($the_title)
+
+	      	$theme.wrapPortlet("portlet.vm", $content_include)
+	      #end
+    
+		</div>
+	  
+	  
+		<div class="clear"><!-- --></div>
+		<div id="iFooter">
+			<span>&copy; Copyright 2012 StorePoints, Inc. All Rights Reserved.</span>
+            
+			<!--<label> </label>
+			<a href="#" >Terms of Use</a>-->
+		</div>
+
+    </div>
+
+  </body>
+
+  $theme.include($bottom_include)
+
+</html>
+

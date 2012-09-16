@@ -1,0 +1,74 @@
+#set($has_depth=false)
+<script>if(cuesDrawnShape==null)cuesDrawnShape=new icuesDrawnShape();</script>
+
+<div id="cuesPrimaryTabsetContainer" style="display:table;">
+  <div id="cuesPrimaryTabset" class="cuesPrimaryTabset">
+    <table border="0" cellspacing="0" cellpadding="0" 
+           style="margin:0px 2px 0px 2px;">
+      <tbody>
+        <tr>        
+          #set($cnt=0)
+  	#foreach ($nav_item in $nav_items)
+            #set($id="cuesPrimaryTabset_" + $cnt +"_tab")
+            <td nowrap="yes">
+              #if ($nav_item.isSelected())
+                #if($nav_item.hasChildren())
+                  #set($has_depth=true)
+                  #set($recurse_nav=$nav_item.getChildren())
+                #end
+                <div class="cuesPrimaryTab cuesPrimaryTabCaptionActive"
+              #else
+                <div class="cuesPrimaryTab cuesPrimaryTabCaptionInactive" 
+              #end
+                     id="${id}" 
+                     onclick="return cuesDrawnShape.togglePrimaryTab('cuesPrimaryTabset',$cnt,true,event)" 
+                     onmouseover="cuesDrawnShape.primarytabMouseover('cuesPrimaryTabset',$cnt)" 
+                     onmouseout="cuesDrawnShape.primarytabMouseout('cuesPrimaryTabset',$cnt)">
+                  <div class="cuesPrimaryTabCaption">
+                    <a id="cuesid_cuesPrimaryTabset_$cnt" 
+                       onfocus="cuesDrawnShape.primarytabMouseover('cuesPrimaryTabset',$cnt)" 
+                       onblur="cuesDrawnShape.primarytabMouseout('cuesPrimaryTabset',$cnt)" 
+                       onclick="return cuesDrawnShape.togglePrimaryTab('cuesPrimaryTabset',$cnt,false,event)" 
+                       class="cuesPrimaryTabLink" $nav_item.getTarget() 
+                       href="$nav_item.getURL()">
+                      <span>
+                        $nav_item.getName()
+                      </span>
+                    </a>
+                  </div>
+                </div>
+            </td>
+            #set($cnt=$cnt + 1)
+          #end
+
+          <td width="100%">&nbsp;</td>
+          #set($cnt=$cnt + 1)
+        
+        </tr>
+
+        #if ($has_depth)      
+          #set($recurse_nav_depth=2)
+          #parse ("$full_templates_path/recurse_navigation.vm")
+        #else
+            </tbody>
+          </table>
+        #end
+
+  </div>
+</div>
+
+<br/>
+<script>
+try
+{
+if(isFF || (document.documentMode!=null && document.documentMode>7))
+  document.getElementById("cuesPrimaryTabsetContainer").style.width="100%";
+}catch(e){}
+cuesDrawnShape.makePrimaryTabset('cuesPrimaryTabset');
+#set($cnt=0)
+#foreach ($nav_item in $nav_items)
+  cuesDrawnShape.makePrimaryTab('cuesPrimaryTabset',$cnt,$nav_item.isSelected());
+  #set($cnt=$cnt + 1)
+#end
+</script>  
+
