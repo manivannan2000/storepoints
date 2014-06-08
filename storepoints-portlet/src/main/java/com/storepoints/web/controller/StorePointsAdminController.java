@@ -32,8 +32,11 @@ import com.storepoints.service.Store;
 import com.storepoints.service.StoreType;
 import com.storepoints.service.client.AddStoreServiceClient;
 import com.storepoints.service.client.GetStoresServiceClient;
+import com.storepoints.service.exception.StorePointsServiceException;
 import com.storepoints.web.dto.GetUserContact;
 import com.storepoints.web.dto.StoreForm;
+
+//import net.sf.json.JSONObject;
 
 
 @Controller
@@ -82,22 +85,36 @@ public class StorePointsAdminController {
 	
 	@ResourceMapping(value="doAjax")
 	public void doAjax(ResourceRequest request, ResourceResponse response, @RequestParam
-	String storeName, String storeType){
+	String storeName, String storeType)  throws Exception{
 	response.setContentType("application/x-json");
 	
 		StoreForm storeForm= new StoreForm();
 		storeForm.setStoreName(storeName);
 		storeForm.setStoreType(storeType);
 		
+		String errorMessage="";
+		
 		AddStoreServiceClient addStoreServiceClient = new AddStoreServiceClient(storeForm);
 		
-		addStoreServiceClient.makeServiceCall();
 	
-		try{
-		response.getWriter().print("Store "+storeName+ " stored.");
-		}catch(IOException excp){
+	try{
 			
+			addStoreServiceClient.makeServiceCall();
+		
+		}catch(StorePointsServiceException spSExcp){
+			errorMessage=spSExcp.getMessage();
 		}
+		
+		if(!errorMessage.trim().equals("")){
+			
+//			JSONObject jsonObj = new JSONObject();
+			response.getWriter().print("{ \"success\": \"false\", \"message\": \"Store "+storeName+ " creation failed due to reason "+errorMessage+"\"}");
+		}else{
+			response.getWriter().print("{ \"success\": \"true\", \"message\": \"Store "+storeName+" added successfully\"}");	
+		}
+		
+		
+		
 	}	
 	
 	@RequestMapping(params = "action=createStore")
@@ -121,13 +138,21 @@ public class StorePointsAdminController {
 		
 		
 		AddStoreServiceClient addStoreServiceClient = new AddStoreServiceClient(storeForm);
-		
+		try{
 		addStoreServiceClient.makeServiceCall();
+		
 		if(addStoreServiceClient.isStoredStatus()){
 			response.setRenderParameter("statusMessage","Store "+storeForm.getStoreName()+" added successfully.");
 		}
 		
 		response.setRenderParameter("action", "");
+
+		
+		}catch(Exception excp){
+			excp.printStackTrace();
+			response.setRenderParameter("action", "error");
+		}
+
 	}
 	
 	@RequestMapping(params = "action=createStorePut2")
@@ -143,13 +168,20 @@ public class StorePointsAdminController {
 		storeForm.setStoreType(storeType);
 		
 		AddStoreServiceClient addStoreServiceClient = new AddStoreServiceClient(storeForm);
-		
-		addStoreServiceClient.makeServiceCall();
-		if(addStoreServiceClient.isStoredStatus()){
-			response.setRenderParameter("statusMessage","Store "+storeForm.getStoreName()+" added successfully.");
+		try{
+			addStoreServiceClient.makeServiceCall();
+			if(addStoreServiceClient.isStoredStatus()){
+				response.setRenderParameter("statusMessage","Store "+storeForm.getStoreName()+" added successfully.");
+			}
+			
+			response.setRenderParameter("action", "");
+		}catch(Exception excp){
+			excp.printStackTrace();
+			response.setRenderParameter("action", "error");
+			
 		}
-		
-		response.setRenderParameter("action", "");
+
+
 	}
 
 	
@@ -160,11 +192,19 @@ public class StorePointsAdminController {
 		
 		GetStoresServiceClient getStoresServiceClient = new GetStoresServiceClient();
 		
-		getStoresServiceClient.makeServiceCall();
+		try{
+			getStoresServiceClient.makeServiceCall();
+			
+			model.addAttribute("storepointsstores",getStoresServiceClient.getStores() );
+	
+			return "storepoints/admin/listStores";
 		
-		model.addAttribute("storepointsstores",getStoresServiceClient.getStores() );
+		}catch(Exception excp){
+			excp.printStackTrace();
+			return "storepoints/admin/error";
 
-		return "storepoints/admin/listStores";
+		}
+
 
 	}
 }

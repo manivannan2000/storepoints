@@ -11,6 +11,7 @@ public class GetAccountsServiceClientTest {
 //		GetAccountsServiceClient getAccountsServiceClient = new GetAccountsServiceClient("5107701784","RESTAURANTS");
 		GetAccountsServiceClient getAccountsServiceClient = new GetAccountsServiceClient("5107701784","TEXTILES");
 		
+		try{
 		getAccountsServiceClient.makeServiceCall();
 		
 		
@@ -23,6 +24,11 @@ public class GetAccountsServiceClientTest {
 			System.out.println("Accounts: getStoreName:"+account.getStoreName());
 			System.out.println("Accounts: storePoints:"+account.getStorePoint());
 		}
+		
+		} catch(Exception excp){
+			excp.printStackTrace();
+		}
+
 
 		
 		

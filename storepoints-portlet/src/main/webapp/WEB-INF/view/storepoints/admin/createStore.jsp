@@ -174,7 +174,36 @@
 	                icon: 'ext-mb-error'
 	            });
 			}
+			
+			function showServerError(){
+	        	expandAll(Ext.get('expandCollapseAllLink'));
+	        	window.scroll(0,0);
+	        	Ext.MessageBox.show({
+	                title: 'Server Errors',
+	                msg: 'Error performing the store creation. .There are server errors that need your attention.',
+	                buttons: Ext.MessageBox.OK,
+	                icon: 'ext-mb-error'
+	            });
+			}
 
+			
+		    /**
+		     * Listen for storeCreation eerrors.
+		     */
+		   /*
+		     function onStoreCreationException (response, operation) {
+		        Ext.Msg.alert("Error store creation from server", operation.error);
+		    }
+*/
+
+		    
+		    /**
+		    *				listeners:{
+					exception: this.onStoreCreationException,
+					scope:	this
+				},
+
+		    */
 				        
 
           	var storeForm = new Ext.form.FormPanel({
@@ -197,9 +226,30 @@
 				        	isValidated = validateStoreForm();
 						}
 						if (isValidated){
-							storeForm.getForm().submit();
+							storeForm.getForm().submit({
+				                url: '${doAjaxURL}',
+				                scope: this,
+				                success: function (formPanel, action) {
+				                    var data = Ext.decode(action.response.responseText);
+				                    alert("Success: " + data.msg);
+				                },
+				                failure: function (formPanel, action) {
+				                    var data = Ext.decode(action.response.responseText);
+				                    alert("Failure: " + data.msg);
+				                }
+				            });
  						} else {
 							showSystemError();
+						}
+					},
+					listeners : {
+						exception : function(){
+				        	Ext.MessageBox.show({
+				                title: 'Server Errors',
+				                msg: 'Error performing the store creation. .There are server errors that need your attention.',
+				                buttons: Ext.MessageBox.OK,
+				                icon: 'ext-mb-error'
+				            });
 						}
 					}
 				},{

@@ -10,6 +10,8 @@ import com.storepoints.service.ObjectFactory;
 import com.storepoints.service.Status;
 import com.storepoints.service.Store;
 import com.storepoints.service.StoreType;
+import com.storepoints.service.exception.StorePointsServiceException;
+import com.storepoints.service.exception.StoreTypeMissingException;
 import com.storepoints.web.dto.StoreForm;
 
 public class AddStoreServiceClient extends AbstractSPServiceClient {
@@ -50,23 +52,31 @@ public class AddStoreServiceClient extends AbstractSPServiceClient {
 	}
 
 	@Override
-	protected Object getSPServiceRequest() {
+	protected Object getSPServiceRequest() throws StorePointsServiceException {
 		ObjectFactory objectFactory = new ObjectFactory();
 		
 		AddStore addStore = new AddStore();
-		
+		try{
 		addStore.setArg0(getStoreFromForm(storeForm));
+		} catch(StoreTypeMissingException stmExcp){
+			throw new StorePointsServiceException(stmExcp.getMessage());
+		}
 		return objectFactory.createAddStore(addStore);
+
 	}
 	
 	
 	
-	private Store getStoreFromForm(StoreForm storeForm){
+	private Store getStoreFromForm(StoreForm storeForm) throws StoreTypeMissingException{
 		Store store = new Store();
 		store.setStoreId(UUID.randomUUID().toString());
 		store.setStoreName(storeForm.getStoreName());
-		store.setStoreType(StoreType.fromValue(storeForm.getStoreType()));
 		
+		try{
+		store.setStoreType(StoreType.fromValue(storeForm.getStoreType()));
+		}catch(java.lang.IllegalArgumentException excp){
+			throw new StoreTypeMissingException(storeForm.getStoreType()+" is not in the list.");
+		}
 		return store;
 	}
 	

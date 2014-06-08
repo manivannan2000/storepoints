@@ -78,11 +78,17 @@ public class StorePointsViewController {
 
 
 					GetAccountsServiceClient  client = new GetAccountsServiceClient(contactSessionValue,storeType);
-					client.makeServiceCall();
+				
+					try{
+						client.makeServiceCall();
+						
+						model.addAttribute("storepointsaccounts",client.getAccountsData() );
+	
+						return "storepoints/list";
+					} catch(Exception excp){
+						return "storepoints/error";
+					}
 					
-					model.addAttribute("storepointsaccounts",client.getAccountsData() );
-
-					return "storepoints/list";
 
 		      }
 		
@@ -110,13 +116,15 @@ public class StorePointsViewController {
 			RenderResponse renderResponse) {
 		
 		GetStoresServiceClient getStoresServiceClient = new GetStoresServiceClient();
-		
-		getStoresServiceClient.makeServiceCall();
-		
-		model.addAttribute("storepointsstores",getStoresServiceClient.getStores() );
-
-		return "storepoints/admin/listStores";
-
+		try{
+			getStoresServiceClient.makeServiceCall();
+			
+			model.addAttribute("storepointsstores",getStoresServiceClient.getStores() );
+	
+			return "storepoints/admin/listStores";
+		} catch(Exception excp){
+			return "storepoints/error";
+		}
 	}
 
 	/** TO BE REMOVED -- END **/	
@@ -160,9 +168,16 @@ public class StorePointsViewController {
 			
 			
 			GetAccountsServiceClient  client = new GetAccountsServiceClient(contactname,storeType);
+			
+			try{
 			client.makeServiceCall();
 			
 			model.addAttribute("storepointsaccounts",client.getAccountsData() );
+			
+			} catch(Exception excp){
+				return "storepoints/error";
+			}
+
 
 		}
 

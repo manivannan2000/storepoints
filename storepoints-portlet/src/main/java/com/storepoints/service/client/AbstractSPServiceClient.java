@@ -16,6 +16,8 @@ import org.apache.commons.httpclient.HttpClient;
 import org.apache.commons.httpclient.methods.ByteArrayRequestEntity;
 import org.apache.commons.httpclient.methods.PostMethod;
 
+import com.storepoints.service.exception.StorePointsServiceException;
+
 
 public abstract class AbstractSPServiceClient {
 
@@ -30,7 +32,7 @@ public abstract class AbstractSPServiceClient {
 
 	protected abstract void inflateResponse( Object responseObj);
 	
-	protected abstract Object getSPServiceRequest();
+	protected abstract Object getSPServiceRequest() throws StorePointsServiceException;
 	
 	
 	/**
@@ -50,7 +52,7 @@ public abstract class AbstractSPServiceClient {
 		return jaxbContext;
 	}
 
-	public void makeServiceCall(){
+	public void makeServiceCall() throws StorePointsServiceException{
 		try {
 			msgFactory = MessageFactory.newInstance();
 
@@ -140,6 +142,8 @@ public abstract class AbstractSPServiceClient {
 			
 		} catch (Exception e) {
 			e.printStackTrace();
+			
+			throw new StorePointsServiceException(e.getMessage());
 		}
 
 	}

@@ -13,6 +13,8 @@ public class GetStoresServiceClientTest {
 	public static void main(String[] args) {
 		
 		GetStoresServiceClient getStoresServiceClient= new GetStoresServiceClient();
+
+		try{
 		getStoresServiceClient.makeServiceCall();
 		
 		List<Store> stores = getStoresServiceClient.getStores();
@@ -27,7 +29,9 @@ public class GetStoresServiceClientTest {
 			
 		}
 		
-		
+		} catch(Exception excp){
+			excp.printStackTrace();
+		}
 
 	}
 
