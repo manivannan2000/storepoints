@@ -1,0 +1,92 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.storepoints.cms</groupId>
+	<artifactId>storepoints-services</artifactId>
+	<packaging>war</packaging>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>storepoints-services</name>
+	<properties>
+		<!-- Version of CXF. Change this to latets version for building against 
+			latest CXF distribution -->
+		<cxf.version>2.2.3</cxf.version>
+	</properties>
+	<build>
+		<!--Directory where the source code is located -->
+		<sourceDirectory>src</sourceDirectory>
+		<resources>
+			<resource>
+				<!-- Include properties and xml file from src folder -->
+				<directory>src</directory>
+				<includes>
+					<include>**/*.properties</include>
+					<include>**/*.xml</include>
+				</includes>
+			</resource>
+		</resources>
+		<plugins>
+			<plugin>
+				<!-- Plugin for compiling Java code -->
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<!-- Java version for compiling the source code -->
+					<source>1.5</source>
+					<target>1.5</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<!-- Maven Plugin used to build WAR archive -->
+				<artifactId>maven-war-plugin</artifactId>
+				<version>2.0</version>
+				<configuration> <!-- Directory for Web application -->
+					<webappDirectory>webapp</webappDirectory>
+					<webResources>
+					</webResources>
+				</configuration>
+			</plugin>
+		</plugins>
+		<finalName>storepoints-services</finalName>
+	</build>
+	<dependencies>
+		<dependency>
+			<!-- Apache JAX-WS CXF Dependency for WAR and JAX-WS Client -->
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-frontend-jaxws</artifactId>
+			<version>${cxf.version}</version>
+		</dependency>
+		<dependency>
+			<!-- Apache JAX-WS CXF Dependency for HTTP transport -->
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-transports-http</artifactId>
+			<version>${cxf.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-frontend-jaxrs</artifactId>
+			<version>${cxf.version}</version>
+		</dependency>
+		
+		
+		<dependency>
+			<groupId>commons-httpclient</groupId>
+			<artifactId>commons-httpclient</artifactId>
+			<version>3.1</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>net.sf.json-lib</groupId>
+			<artifactId>json-lib</artifactId>
+			<version>2.4</version>
+		</dependency>		
+
+	<!-- Use Log4J for logging --> 
+	<dependency> 
+		<groupId>org.slf4j</groupId> 
+		<artifactId>slf4j-log4j12</artifactId> 
+		<version>1.5.11</version> 
+	</dependency> 
+
+	</dependencies>
+</project>  
+  
